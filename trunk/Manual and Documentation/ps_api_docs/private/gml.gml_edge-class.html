@@ -1,0 +1,596 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>gml.gml_edge</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css"></link>
+</head>
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+
+<!-- =========== START OF NAVBAR =========== -->
+<table class="navbar" border="0" width="100%" cellpadding="0" bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="center">
+    <th class="navbar">&nbsp;&nbsp;&nbsp;<a class="navbar" href="trees.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar">&nbsp;&nbsp;&nbsp;<a class="navbar" href="indices.html">Index</a>&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar">&nbsp;&nbsp;&nbsp;<a class="navbar" href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar" align="right" width="100%">
+      <table border="0" cellpadding="0" cellspacing="0">
+      <tr><th class="navbar" align="center">
+        <p class="nomargin">
+          <a class="navbar" target="_top" href="http://pedram.redhive.com">Process&nbsp;Stalker&nbsp;--&nbsp;Instrumentation&nbsp;API</a>
+      </p></th></tr></table>
+    </th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <font size="-1"><b class="breadcrumbs">
+        <a href="gml-module.html">Module&nbsp;gml</a> ::
+        Class&nbsp;gml_edge
+      </b></font></br>
+    </td>
+    <td><table cellpadding="0" cellspacing="0">
+      <tr><td align="right"><font size="-2">[show&nbsp;private&nbsp;|&nbsp;<a href="../public/gml.gml_edge-class.html">hide&nbsp;private</a>]</font></td></tr>
+      <tr><td align="right"><font size="-2">[<a href="frames.html"target="_top">frames</a>&nbsp;|&nbsp;<a href="gml.gml_edge-class.html" target="_top">no&nbsp;frames</a>]</font></td></tr>
+    </table></td>
+</tr></table>
+
+<!-- =========== START OF CLASS DESCRIPTION =========== -->
+<h2 class="class">Class gml_edge</h2>
+
+<hr/>
+
+Edges contain a number of attributes that describe the source, 
+destination, color, shape etc. of displayable lines. Relevant getters and 
+setters exist for manipulating edge attributes. The render() routine 
+should be used for returning an edge description suitable for inclusion 
+in a GML file.
+<hr/>
+
+
+<!-- =========== START OF METHOD SUMMARY =========== -->
+<table class="summary" border="1" cellpadding="3" cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="summary">
+  <th colspan="2">Method Summary</th></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_edge-class.html#__init__" class="summary-sig-name"><code>__init__</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Set the default attributes for the newly created edge.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_edge-class.html#__module_test__" class="summary-sig-name"><code>__module_test__</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Run a few basic tests to ensure the class is working.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">        Integer
+</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_edge-class.html#get_dst_id" class="summary-sig-name"><code>get_dst_id</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Get the identifier for the edges destination.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">        Integer
+</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_edge-class.html#get_dst_uid" class="summary-sig-name"><code>get_dst_uid</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Get the unique identifier for the edges destination.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">        String
+</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_edge-class.html#get_g_arrow" class="summary-sig-name"><code>get_g_arrow</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Get the arrow type for the edge from the graphics sub-header.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">        HTML RGB string (ex: #CCFFCC)
+</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_edge-class.html#get_g_fill" class="summary-sig-name"><code>get_g_fill</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Get the fill color of the edge from the graphics sub-header.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">        Float
+</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_edge-class.html#get_g_line_width" class="summary-sig-name"><code>get_g_line_width</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Get the line width for the edge from the graphics sub-header.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">        Integer
+</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_edge-class.html#get_g_stipple" class="summary-sig-name"><code>get_g_stipple</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Get the stipple value for the edge from the graphics sub-header.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">        String
+</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_edge-class.html#get_g_type" class="summary-sig-name"><code>get_g_type</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Get the shape for the edge from the graphics sub-header.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">        Integer
+</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_edge-class.html#get_generalization" class="summary-sig-name"><code>get_generalization</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Get the generalization value for this edge.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">        Integer
+</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_edge-class.html#get_src_id" class="summary-sig-name"><code>get_src_id</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Get the identifier for the edges source.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">        Integer
+</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_edge-class.html#get_src_uid" class="summary-sig-name"><code>get_src_uid</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Get the unique identifier for the edges source.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">        String
+</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_edge-class.html#render" class="summary-sig-name"><code>render</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Render an edge description suitable for use in a GML file using the 
+set internal attributes.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_edge-class.html#set_dst_id" class="summary-sig-name"><code>set_dst_id</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>id</span>)</span></code>
+<br />
+Set the identifier for the edges destination.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_edge-class.html#set_dst_uid" class="summary-sig-name"><code>set_dst_uid</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>uid</span>)</span></code>
+<br />
+Set the unique identifier for the edges destination.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_edge-class.html#set_g_arrow" class="summary-sig-name"><code>set_g_arrow</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>arrow</span>)</span></code>
+<br />
+Set the arrow type for the edge in the graphics sub-header.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_edge-class.html#set_g_fill" class="summary-sig-name"><code>set_g_fill</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>color</span>)</span></code>
+<br />
+Set the fill color of the edge in the graphics sub-header.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_edge-class.html#set_g_line_width" class="summary-sig-name"><code>set_g_line_width</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>pixels</span>)</span></code>
+<br />
+Set the line width for the edge in the graphics sub-header.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_edge-class.html#set_g_stipple" class="summary-sig-name"><code>set_g_stipple</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>stipple</span>)</span></code>
+<br />
+Set the stipple value for the edge in the graphics sub-header.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_edge-class.html#set_g_type" class="summary-sig-name"><code>set_g_type</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>type</span>)</span></code>
+<br />
+Set the shape for the edge in the graphics sub-header.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_edge-class.html#set_generalization" class="summary-sig-name"><code>set_generalization</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>generalization</span>)</span></code>
+<br />
+Set the generalization value for the edge.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_edge-class.html#set_src_id" class="summary-sig-name"><code>set_src_id</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>id</span>)</span></code>
+<br />
+Set the identifier for the edges source.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_edge-class.html#set_src_uid" class="summary-sig-name"><code>set_src_uid</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>uid</span>)</span></code>
+<br />
+Set the unique identifier for the edges source.</td></tr>
+</table><br />
+
+
+<!-- =========== START OF METHOD DETAILS =========== -->
+<table class="details" border="1" cellpadding="3" cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="details">
+  <th colspan="2">Method Details</th></tr>
+</table>
+
+<a name="__init__"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">__init__</span>(<span class=sig-arg>self</span>)</span>
+    <br /><i>(Constructor)</i>
+  </h3>
+  Set the default attributes for the newly created edge. See the 
+  source if you want to modify the default creation values.
+  <dl><dt></dt><dd>
+  </dd></dl>
+</td></tr></table>
+
+<a name="__module_test__"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">__module_test__</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  Run a few basic tests to ensure the class is working.
+  <dl><dt></dt><dd>
+  </dd></dl>
+</td></tr></table>
+
+<a name="get_dst_id"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">get_dst_id</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  Get the identifier for the edges destination. This identifier can 
+  *not* be assumed to be unique. See get_dst_uid().
+  <dl><dt></dt><dd>
+    <dl><dt><b>Returns:</b></dt>
+      <dd>
+        Identifier
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=Integer)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="get_dst_uid"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">get_dst_uid</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  Get the unique identifier for the edges destination. The dst_id 
+  member variable stores the original value from the GML file. The 
+  purpose of the UID is to uniquely identify the edge destination among a 
+  list of loaded edges that may potentially have overlapping IDs. The 
+  parser class will automatically assign an incremented value.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Returns:</b></dt>
+      <dd>
+        Unique identifier
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=Integer)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="get_g_arrow"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">get_g_arrow</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  Get the arrow type for the edge from the graphics sub-header.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Returns:</b></dt>
+      <dd>
+        Arrow type
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=String)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="get_g_fill"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">get_g_fill</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  Get the fill color of the edge from the graphics sub-header.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Returns:</b></dt>
+      <dd>
+        Color
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=HTML RGB string (ex: #CCFFCC))</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="get_g_line_width"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">get_g_line_width</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  Get the line width for the edge from the graphics sub-header.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Returns:</b></dt>
+      <dd>
+        Line width in pixels
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=Float)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="get_g_stipple"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">get_g_stipple</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  Get the stipple value for the edge from the graphics sub-header.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Returns:</b></dt>
+      <dd>
+        Stipple value
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=Integer)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="get_g_type"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">get_g_type</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  Get the shape for the edge from the graphics sub-header. For the 
+  purposes of Process Stalker this value will be &quot;line&quot;.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Returns:</b></dt>
+      <dd>
+        Line type
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=String)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="get_generalization"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">get_generalization</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  Get the generalization value for this edge.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Returns:</b></dt>
+      <dd>
+        Generalization
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=Integer)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="get_src_id"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">get_src_id</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  Get the identifier for the edges source. This identifier can *not* 
+  be assumed to be unique. See get_src_uid().
+  <dl><dt></dt><dd>
+    <dl><dt><b>Returns:</b></dt>
+      <dd>
+        Identifier
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=Integer)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="get_src_uid"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">get_src_uid</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  Get the unique identifier for the edges source. The src_id member 
+  variable stores the original value from the GML file. The purpose of 
+  the UID is to uniquely identify the edge source among a list of loaded 
+  edges that may potentially have overlapping IDs. The parser class will 
+  automatically assign an incremented value.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Returns:</b></dt>
+      <dd>
+        Unique identifier
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=Integer)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="render"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">render</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  Render an edge description suitable for use in a GML file using the 
+  set internal attributes.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Returns:</b></dt>
+      <dd>
+        GML edge description
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=String)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="set_dst_id"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">set_dst_id</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>id</span>)</span>
+  </h3>
+  Set the identifier for the edges destination. This identifier can 
+  *not* be assumed to be unique. See set_dst_uid().
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>id</b></code> -
+         Identifier
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=Integer)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="set_dst_uid"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">set_dst_uid</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>uid</span>)</span>
+  </h3>
+  Set the unique identifier for the edges destination. The dst_id 
+  member variable stores the original value from the GML file. The 
+  purpose of the UID is to uniquely identify the edge destination among a 
+  list of loaded edges that may potentially have overlapping IDs. The 
+  parser class will automatically assign an incremented value.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>uid</b></code> -
+         Unique identifier
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=Integer)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="set_g_arrow"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">set_g_arrow</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>arrow</span>)</span>
+  </h3>
+  Set the arrow type for the edge in the graphics sub-header.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>arrow</b></code> -
+         Arrow type
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=String)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="set_g_fill"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">set_g_fill</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>color</span>)</span>
+  </h3>
+  Set the fill color of the edge in the graphics sub-header.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>color</b></code> -
+         Color
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=HTML RGB string (ex: #CCFFCC))</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="set_g_line_width"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">set_g_line_width</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>pixels</span>)</span>
+  </h3>
+  Set the line width for the edge in the graphics sub-header.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>pixels</b></code> -
+         Line width in pixels
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=Float)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="set_g_stipple"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">set_g_stipple</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>stipple</span>)</span>
+  </h3>
+  Set the stipple value for the edge in the graphics sub-header.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>stipple</b></code> -
+         Stipple value
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=Integer)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="set_g_type"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">set_g_type</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>type</span>)</span>
+  </h3>
+  Set the shape for the edge in the graphics sub-header. For the 
+  purposes of Process Stalker this value will be &quot;line&quot;.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>type</b></code> -
+         Line type
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=String)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="set_generalization"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">set_generalization</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>generalization</span>)</span>
+  </h3>
+  Set the generalization value for the edge.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>generalization</b></code> -
+         Generalization value
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=Integer)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="set_src_id"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">set_src_id</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>id</span>)</span>
+  </h3>
+  Set the identifier for the edges source. This identifier can *not* 
+  be assumed to be unique. See get_src_uid().
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>id</b></code> -
+         Identifier
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=Integer)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="set_src_uid"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">set_src_uid</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>uid</span>)</span>
+  </h3>
+  Set the unique identifier for the edges source. The src_id member 
+  variable stores the original value from the GML file. The purpose of 
+  the UID is to uniquely identify the edge source among a list of loaded 
+  edges that may potentially have overlapping IDs. The parser class will 
+  automatically assign an incremented value.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>uid</b></code> -
+         Unique identifier
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=Integer)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+<br />
+
+
+<!-- =========== START OF NAVBAR =========== -->
+<table class="navbar" border="0" width="100%" cellpadding="0" bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="center">
+    <th class="navbar">&nbsp;&nbsp;&nbsp;<a class="navbar" href="trees.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar">&nbsp;&nbsp;&nbsp;<a class="navbar" href="indices.html">Index</a>&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar">&nbsp;&nbsp;&nbsp;<a class="navbar" href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar" align="right" width="100%">
+      <table border="0" cellpadding="0" cellspacing="0">
+      <tr><th class="navbar" align="center">
+        <p class="nomargin">
+          <a class="navbar" target="_top" href="http://pedram.redhive.com">Process&nbsp;Stalker&nbsp;--&nbsp;Instrumentation&nbsp;API</a>
+      </p></th></tr></table>
+    </th>
+  </tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td align="left"><font size="-2">Generated by Epydoc 2.1 on Tue Jul 05 12:05:31 2005</font></td>
+    <td align="right"><a href="http://epydoc.sourceforge.net"
+                      ><font size="-2">http://epydoc.sf.net</font></a></td>
+  </tr>
+</table>
+</body>
+</html>

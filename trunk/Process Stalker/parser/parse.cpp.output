@@ -1,0 +1,700 @@
+
+
+Terminals which are not used:
+
+   ERROR_TOKEN
+
+
+
+Grammar
+rule 1    program -> statement_list
+rule 2    statement_list -> statement_list statement
+rule 3    statement_list ->		/* empty */
+rule 4    statement -> ';'
+rule 5    statement -> return_expression name_expression '(' ')' ';'
+rule 6    statement -> return_expression name_expression '(' arguments_expression ')' ';'
+rule 7    statement -> error ';'
+rule 8    arguments_expression -> single_argument
+rule 9    arguments_expression -> arguments_expression ',' single_argument
+rule 10   return_expression -> ctype_expression
+rule 11   return_expression -> string EQUAL ctype_expression
+rule 12   return_expression ->		/* empty */
+rule 13   single_argument -> directed_ctype identifier
+rule 14   single_argument -> directed_ctype
+rule 15   directed_ctype -> '[' DIR_IN ']' ctype_expression
+rule 16   directed_ctype -> '[' DIR_OUT ']' ctype_expression
+rule 17   directed_ctype -> '[' DIR_BOTH ']' ctype_expression
+rule 18   directed_ctype -> ctype_expression
+rule 19   ctype_expression -> CT_CHAR
+rule 20   ctype_expression -> CT_CHAR '*'
+rule 21   ctype_expression -> CT_INT
+rule 22   ctype_expression -> CT_INT '*'
+rule 23   ctype_expression -> CT_VOID
+rule 24   ctype_expression -> CT_VOID '*'
+rule 25   ctype_expression -> CT_FMTCHAR '*'
+rule 26   ctype_expression -> CT_WCHAR '*'
+rule 27   ctype_expression -> CT_FMTWCHAR '*'
+rule 28   name_expression -> callconv mod_identifier ':' identifier
+rule 29   name_expression -> callconv identifier
+rule 30   callconv -> CALL_CDECL
+rule 31   callconv -> CALL_FASTCALL
+rule 32   callconv -> CALL_STDCALL
+rule 33   callconv ->		/* empty */
+rule 34   mod_identifier -> MODID
+rule 35   identifier -> ID
+rule 36   identifier -> HEXID
+rule 37   string -> STRING
+
+Terminals, with rules where they appear
+
+$ (-1)
+'(' (40) 5 6
+')' (41) 5 6
+'*' (42) 20 22 24 25 26 27
+',' (44) 9
+':' (58) 28
+';' (59) 4 5 6 7
+'[' (91) 15 16 17
+']' (93) 15 16 17
+error (256) 7
+ERROR_TOKEN (258)
+EQUAL (259) 11
+CT_CHAR (260) 19 20
+CT_INT (261) 21 22
+CT_VOID (262) 23 24
+CT_FMTCHAR (263) 25
+CT_WCHAR (264) 26
+CT_FMTWCHAR (265) 27
+DIR_IN (266) 15
+DIR_OUT (267) 16
+DIR_BOTH (268) 17
+CALL_CDECL (269) 30
+CALL_FASTCALL (270) 31
+CALL_STDCALL (271) 32
+ID (272) 35
+STRING (273) 37
+HEXID (274) 36
+MODID (275) 34
+
+Nonterminals, with rules where they appear
+
+program (29)
+    on left: 1
+statement_list (30)
+    on left: 2 3, on right: 1 2
+statement (31)
+    on left: 4 5 6 7, on right: 2
+arguments_expression (32)
+    on left: 8 9, on right: 6 9
+return_expression (33)
+    on left: 10 11 12, on right: 5 6
+single_argument (34)
+    on left: 13 14, on right: 8 9
+directed_ctype (35)
+    on left: 15 16 17 18, on right: 13 14
+ctype_expression (36)
+    on left: 19 20 21 22 23 24 25 26 27, on right: 10 11 15 16 17 18
+name_expression (37)
+    on left: 28 29, on right: 5 6
+callconv (38)
+    on left: 30 31 32 33, on right: 28 29
+mod_identifier (39)
+    on left: 34, on right: 28
+identifier (40)
+    on left: 35 36, on right: 13 28 29
+string (41)
+    on left: 37, on right: 11
+
+
+state 0
+
+    $default	reduce using rule 3 (statement_list)
+
+    program	go to state 58
+    statement_list	go to state 1
+
+
+
+state 1
+
+    program  ->  statement_list .   (rule 1)
+    statement_list  ->  statement_list . statement   (rule 2)
+
+    error	shift, and go to state 2
+    CT_CHAR	shift, and go to state 3
+    CT_INT	shift, and go to state 4
+    CT_VOID	shift, and go to state 5
+    CT_FMTCHAR	shift, and go to state 6
+    CT_WCHAR	shift, and go to state 7
+    CT_FMTWCHAR	shift, and go to state 8
+    STRING	shift, and go to state 9
+    ';' 	shift, and go to state 10
+
+    $   	reduce using rule 1 (program)
+    CALL_CDECL	reduce using rule 12 (return_expression)
+    CALL_FASTCALL	reduce using rule 12 (return_expression)
+    CALL_STDCALL	reduce using rule 12 (return_expression)
+    ID  	reduce using rule 12 (return_expression)
+    HEXID	reduce using rule 12 (return_expression)
+    MODID	reduce using rule 12 (return_expression)
+
+    statement	go to state 11
+    return_expression	go to state 12
+    ctype_expression	go to state 13
+    string	go to state 14
+
+
+
+state 2
+
+    statement  ->  error . ';'   (rule 7)
+
+    ';' 	shift, and go to state 15
+
+
+
+state 3
+
+    ctype_expression  ->  CT_CHAR .   (rule 19)
+    ctype_expression  ->  CT_CHAR . '*'   (rule 20)
+
+    '*' 	shift, and go to state 16
+
+    $default	reduce using rule 19 (ctype_expression)
+
+
+
+state 4
+
+    ctype_expression  ->  CT_INT .   (rule 21)
+    ctype_expression  ->  CT_INT . '*'   (rule 22)
+
+    '*' 	shift, and go to state 17
+
+    $default	reduce using rule 21 (ctype_expression)
+
+
+
+state 5
+
+    ctype_expression  ->  CT_VOID .   (rule 23)
+    ctype_expression  ->  CT_VOID . '*'   (rule 24)
+
+    '*' 	shift, and go to state 18
+
+    $default	reduce using rule 23 (ctype_expression)
+
+
+
+state 6
+
+    ctype_expression  ->  CT_FMTCHAR . '*'   (rule 25)
+
+    '*' 	shift, and go to state 19
+
+
+
+state 7
+
+    ctype_expression  ->  CT_WCHAR . '*'   (rule 26)
+
+    '*' 	shift, and go to state 20
+
+
+
+state 8
+
+    ctype_expression  ->  CT_FMTWCHAR . '*'   (rule 27)
+
+    '*' 	shift, and go to state 21
+
+
+
+state 9
+
+    string  ->  STRING .   (rule 37)
+
+    $default	reduce using rule 37 (string)
+
+
+
+state 10
+
+    statement  ->  ';' .   (rule 4)
+
+    $default	reduce using rule 4 (statement)
+
+
+
+state 11
+
+    statement_list  ->  statement_list statement .   (rule 2)
+
+    $default	reduce using rule 2 (statement_list)
+
+
+
+state 12
+
+    statement  ->  return_expression . name_expression '(' ')' ';'   (rule 5)
+    statement  ->  return_expression . name_expression '(' arguments_expression ')' ';'   (rule 6)
+
+    CALL_CDECL	shift, and go to state 22
+    CALL_FASTCALL	shift, and go to state 23
+    CALL_STDCALL	shift, and go to state 24
+
+    $default	reduce using rule 33 (callconv)
+
+    name_expression	go to state 25
+    callconv	go to state 26
+
+
+
+state 13
+
+    return_expression  ->  ctype_expression .   (rule 10)
+
+    $default	reduce using rule 10 (return_expression)
+
+
+
+state 14
+
+    return_expression  ->  string . EQUAL ctype_expression   (rule 11)
+
+    EQUAL	shift, and go to state 27
+
+
+
+state 15
+
+    statement  ->  error ';' .   (rule 7)
+
+    $default	reduce using rule 7 (statement)
+
+
+
+state 16
+
+    ctype_expression  ->  CT_CHAR '*' .   (rule 20)
+
+    $default	reduce using rule 20 (ctype_expression)
+
+
+
+state 17
+
+    ctype_expression  ->  CT_INT '*' .   (rule 22)
+
+    $default	reduce using rule 22 (ctype_expression)
+
+
+
+state 18
+
+    ctype_expression  ->  CT_VOID '*' .   (rule 24)
+
+    $default	reduce using rule 24 (ctype_expression)
+
+
+
+state 19
+
+    ctype_expression  ->  CT_FMTCHAR '*' .   (rule 25)
+
+    $default	reduce using rule 25 (ctype_expression)
+
+
+
+state 20
+
+    ctype_expression  ->  CT_WCHAR '*' .   (rule 26)
+
+    $default	reduce using rule 26 (ctype_expression)
+
+
+
+state 21
+
+    ctype_expression  ->  CT_FMTWCHAR '*' .   (rule 27)
+
+    $default	reduce using rule 27 (ctype_expression)
+
+
+
+state 22
+
+    callconv  ->  CALL_CDECL .   (rule 30)
+
+    $default	reduce using rule 30 (callconv)
+
+
+
+state 23
+
+    callconv  ->  CALL_FASTCALL .   (rule 31)
+
+    $default	reduce using rule 31 (callconv)
+
+
+
+state 24
+
+    callconv  ->  CALL_STDCALL .   (rule 32)
+
+    $default	reduce using rule 32 (callconv)
+
+
+
+state 25
+
+    statement  ->  return_expression name_expression . '(' ')' ';'   (rule 5)
+    statement  ->  return_expression name_expression . '(' arguments_expression ')' ';'   (rule 6)
+
+    '(' 	shift, and go to state 28
+
+
+
+state 26
+
+    name_expression  ->  callconv . mod_identifier ':' identifier   (rule 28)
+    name_expression  ->  callconv . identifier   (rule 29)
+
+    ID  	shift, and go to state 29
+    HEXID	shift, and go to state 30
+    MODID	shift, and go to state 31
+
+    mod_identifier	go to state 32
+    identifier	go to state 33
+
+
+
+state 27
+
+    return_expression  ->  string EQUAL . ctype_expression   (rule 11)
+
+    CT_CHAR	shift, and go to state 3
+    CT_INT	shift, and go to state 4
+    CT_VOID	shift, and go to state 5
+    CT_FMTCHAR	shift, and go to state 6
+    CT_WCHAR	shift, and go to state 7
+    CT_FMTWCHAR	shift, and go to state 8
+
+    ctype_expression	go to state 34
+
+
+
+state 28
+
+    statement  ->  return_expression name_expression '(' . ')' ';'   (rule 5)
+    statement  ->  return_expression name_expression '(' . arguments_expression ')' ';'   (rule 6)
+
+    CT_CHAR	shift, and go to state 3
+    CT_INT	shift, and go to state 4
+    CT_VOID	shift, and go to state 5
+    CT_FMTCHAR	shift, and go to state 6
+    CT_WCHAR	shift, and go to state 7
+    CT_FMTWCHAR	shift, and go to state 8
+    ')' 	shift, and go to state 35
+    '[' 	shift, and go to state 36
+
+    arguments_expression	go to state 37
+    single_argument	go to state 38
+    directed_ctype	go to state 39
+    ctype_expression	go to state 40
+
+
+
+state 29
+
+    identifier  ->  ID .   (rule 35)
+
+    $default	reduce using rule 35 (identifier)
+
+
+
+state 30
+
+    identifier  ->  HEXID .   (rule 36)
+
+    $default	reduce using rule 36 (identifier)
+
+
+
+state 31
+
+    mod_identifier  ->  MODID .   (rule 34)
+
+    $default	reduce using rule 34 (mod_identifier)
+
+
+
+state 32
+
+    name_expression  ->  callconv mod_identifier . ':' identifier   (rule 28)
+
+    ':' 	shift, and go to state 41
+
+
+
+state 33
+
+    name_expression  ->  callconv identifier .   (rule 29)
+
+    $default	reduce using rule 29 (name_expression)
+
+
+
+state 34
+
+    return_expression  ->  string EQUAL ctype_expression .   (rule 11)
+
+    $default	reduce using rule 11 (return_expression)
+
+
+
+state 35
+
+    statement  ->  return_expression name_expression '(' ')' . ';'   (rule 5)
+
+    ';' 	shift, and go to state 42
+
+
+
+state 36
+
+    directed_ctype  ->  '[' . DIR_IN ']' ctype_expression   (rule 15)
+    directed_ctype  ->  '[' . DIR_OUT ']' ctype_expression   (rule 16)
+    directed_ctype  ->  '[' . DIR_BOTH ']' ctype_expression   (rule 17)
+
+    DIR_IN	shift, and go to state 43
+    DIR_OUT	shift, and go to state 44
+    DIR_BOTH	shift, and go to state 45
+
+
+
+state 37
+
+    statement  ->  return_expression name_expression '(' arguments_expression . ')' ';'   (rule 6)
+    arguments_expression  ->  arguments_expression . ',' single_argument   (rule 9)
+
+    ')' 	shift, and go to state 46
+    ',' 	shift, and go to state 47
+
+
+
+state 38
+
+    arguments_expression  ->  single_argument .   (rule 8)
+
+    $default	reduce using rule 8 (arguments_expression)
+
+
+
+state 39
+
+    single_argument  ->  directed_ctype . identifier   (rule 13)
+    single_argument  ->  directed_ctype .   (rule 14)
+
+    ID  	shift, and go to state 29
+    HEXID	shift, and go to state 30
+
+    $default	reduce using rule 14 (single_argument)
+
+    identifier	go to state 48
+
+
+
+state 40
+
+    directed_ctype  ->  ctype_expression .   (rule 18)
+
+    $default	reduce using rule 18 (directed_ctype)
+
+
+
+state 41
+
+    name_expression  ->  callconv mod_identifier ':' . identifier   (rule 28)
+
+    ID  	shift, and go to state 29
+    HEXID	shift, and go to state 30
+
+    identifier	go to state 49
+
+
+
+state 42
+
+    statement  ->  return_expression name_expression '(' ')' ';' .   (rule 5)
+
+    $default	reduce using rule 5 (statement)
+
+
+
+state 43
+
+    directed_ctype  ->  '[' DIR_IN . ']' ctype_expression   (rule 15)
+
+    ']' 	shift, and go to state 50
+
+
+
+state 44
+
+    directed_ctype  ->  '[' DIR_OUT . ']' ctype_expression   (rule 16)
+
+    ']' 	shift, and go to state 51
+
+
+
+state 45
+
+    directed_ctype  ->  '[' DIR_BOTH . ']' ctype_expression   (rule 17)
+
+    ']' 	shift, and go to state 52
+
+
+
+state 46
+
+    statement  ->  return_expression name_expression '(' arguments_expression ')' . ';'   (rule 6)
+
+    ';' 	shift, and go to state 53
+
+
+
+state 47
+
+    arguments_expression  ->  arguments_expression ',' . single_argument   (rule 9)
+
+    CT_CHAR	shift, and go to state 3
+    CT_INT	shift, and go to state 4
+    CT_VOID	shift, and go to state 5
+    CT_FMTCHAR	shift, and go to state 6
+    CT_WCHAR	shift, and go to state 7
+    CT_FMTWCHAR	shift, and go to state 8
+    '[' 	shift, and go to state 36
+
+    single_argument	go to state 54
+    directed_ctype	go to state 39
+    ctype_expression	go to state 40
+
+
+
+state 48
+
+    single_argument  ->  directed_ctype identifier .   (rule 13)
+
+    $default	reduce using rule 13 (single_argument)
+
+
+
+state 49
+
+    name_expression  ->  callconv mod_identifier ':' identifier .   (rule 28)
+
+    $default	reduce using rule 28 (name_expression)
+
+
+
+state 50
+
+    directed_ctype  ->  '[' DIR_IN ']' . ctype_expression   (rule 15)
+
+    CT_CHAR	shift, and go to state 3
+    CT_INT	shift, and go to state 4
+    CT_VOID	shift, and go to state 5
+    CT_FMTCHAR	shift, and go to state 6
+    CT_WCHAR	shift, and go to state 7
+    CT_FMTWCHAR	shift, and go to state 8
+
+    ctype_expression	go to state 55
+
+
+
+state 51
+
+    directed_ctype  ->  '[' DIR_OUT ']' . ctype_expression   (rule 16)
+
+    CT_CHAR	shift, and go to state 3
+    CT_INT	shift, and go to state 4
+    CT_VOID	shift, and go to state 5
+    CT_FMTCHAR	shift, and go to state 6
+    CT_WCHAR	shift, and go to state 7
+    CT_FMTWCHAR	shift, and go to state 8
+
+    ctype_expression	go to state 56
+
+
+
+state 52
+
+    directed_ctype  ->  '[' DIR_BOTH ']' . ctype_expression   (rule 17)
+
+    CT_CHAR	shift, and go to state 3
+    CT_INT	shift, and go to state 4
+    CT_VOID	shift, and go to state 5
+    CT_FMTCHAR	shift, and go to state 6
+    CT_WCHAR	shift, and go to state 7
+    CT_FMTWCHAR	shift, and go to state 8
+
+    ctype_expression	go to state 57
+
+
+
+state 53
+
+    statement  ->  return_expression name_expression '(' arguments_expression ')' ';' .   (rule 6)
+
+    $default	reduce using rule 6 (statement)
+
+
+
+state 54
+
+    arguments_expression  ->  arguments_expression ',' single_argument .   (rule 9)
+
+    $default	reduce using rule 9 (arguments_expression)
+
+
+
+state 55
+
+    directed_ctype  ->  '[' DIR_IN ']' ctype_expression .   (rule 15)
+
+    $default	reduce using rule 15 (directed_ctype)
+
+
+
+state 56
+
+    directed_ctype  ->  '[' DIR_OUT ']' ctype_expression .   (rule 16)
+
+    $default	reduce using rule 16 (directed_ctype)
+
+
+
+state 57
+
+    directed_ctype  ->  '[' DIR_BOTH ']' ctype_expression .   (rule 17)
+
+    $default	reduce using rule 17 (directed_ctype)
+
+
+
+state 58
+
+    $   	go to state 59
+
+
+
+state 59
+
+    $   	go to state 60
+
+
+
+state 60
+
+    $default	accept

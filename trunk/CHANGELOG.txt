@@ -1,0 +1,14 @@
+07.13.2005
+    - gml.py: Fixed bug in parsing of GDE saved GML files.
+    - gml.py: Per node register listings are now sorted in alphabetical order.
+    - ps_state_mapper.py: Fixed bug in handling of filename arguments containing directory modifiers. ex: './seh.gml' and '../seh.gml'.
+    - process_stalker.exe: Replaced reliance on DebugActiveProcessStop() and DebugSetProcessKillOnExit() function resolution with dynamic function loading. This was preventing the tracer from running on systems that don't support the API such as Windows 2000.
+
+07.06.2005
+    - Initial public release
+    - Added option to detach tracer from debuggee (XP / 2003 only)
+    - Fixed bug in ps_graph_highlight utility that was causing a loss of cluster background colors
+    - Minor bug fixes
+
+06.17.2005
+    - Beta release to RECON (www.recon.cx) conference attendees
