@@ -1,0 +1,514 @@
+<html>
+<body bgcolor=#EEEEEE text=#333333 marginheight=0 leftmargin=0 topmargin=0 marginwidth=0>
+<center>
+<table border=0 cellpadding=5 cellspacing=0 width=700><tr><td><img src="images/333333.gif" width=1 height="100%"></td><td bgcolor=#FFFFFF>
+<font face="arial" size=2>
+
+<center>
+<img src="images/manual_header.gif">
+</center>
+
+<!-- ------------------------ O V E R V I E W ---------------------------------------------------------->
+
+<font size="+1"><b>Overview</b></font><br><img src="images/333333.gif" width="100%" height=1>
+
+<p align="justify">
+Process Stalking is a term coined to describe the combined process of run-time profiling, state mapping and tracing. Consisting of a series of tools and scripts the goal of a successful stalk is to provide the reverse engineer with an enjoyable interface to filtered, meaningful, run-time block-level trace data.
+<br><br>
+The Process Stalking suite is broken into three main components; an IDA Pro plug-in, a stand alone tracing tool and a series of Python scripts for instrumenting intermediary and GML graph files. The generated GML graph definitions were designed for usage with a freely available interactive graph visualization tool.
+</p>
+
+<!-- ------------------------ I D A   P R O   P L U G - I N -------------------------------------------->
+
+<font size="+1"><b>IDA Pro Plug-in</b></font><br><img src="images/333333.gif" width="100%" height=1>
+
+<p align="justify">
+To install the IDA plug-in, copy the appropriate version of <i>process_stalker.plw</i> to the plugins folder in your top-level IDA Pro install directory. A successful install will generate the following message in the IDA log window upon restart:
+</p>
+
+<p><font face="courier new" color="#0000CC">
+[*] pStalker> Process Stalker - Profiler<br>
+[*] pStalker> Pedram Amini XXXXXXXXXXXXXXXXXXXXXX<br>
+[*] pStalker> Compiled on Jul  5 2005<br>
+</font></p>
+
+<p align="justify">
+The IDA plug-in is used for pre-processing target binaries and generates the following outputs:
+<dl>
+    <dd>&bull; Individual function-level GML graphs</dd>
+    <dd>&bull; Cross references file, listing all inter-function calls.</dd>
+    <dd>&bull; Break point list, with entries for each basic block within the binary.</dd>
+</dl>
+To start the plug-in, wait for IDA's auto analysis to finish and either launch it with the hot key <i>Alt + 5</i> or from the <i>Edit -> Plugins</i> menu. The following dialog should appear:
+</p>
+
+<center>
+    <img src="images/ida_dialog.gif" border=0>
+    <br>
+    <font size=1><i>
+        Process Stalker IDA plug-in dialog
+    </i></font>
+</center>
+
+<p align="justify">
+The default options should be sufficient in most cases however here is a description of what they are:
+<dl>
+<dd>&bull; <b>Enable Instruction Colors</b>: Controls whether or not the plug-in should generate colored instructions. When dealing with large graphs, disabling instruction-level coloring can assist in performance gain.</dd>
+<dd>&bull; <b>Enable Comments</b>: Enable or disable the inclusion of IDA comments in the generated graphs.</dd>
+<dd>&bull; <b>Allow Self Loops</b>: The orthogonal layout is not available in graphs that contain self loops.</dd>
+</dl>
+
+Once the desired options have been selected hit <i>OK</i> and select a target directory to output generated files to. Do not worry about the filename entry, the filename is stripped so anything will suffice. The plug-in can take some time when analyzing the binary and will output the following messages in the IDA log window:
+</p>
+
+<p><font face="courier new" color="#0000CC">
+[*] pStalker> Profile analysis 25% complete.<br>
+[*] pStalker> Profile analysis 50% complete.<br>
+[*] pStalker> Profile analysis 75% complete.<br>
+[*] pStalker> Profile analysis 100% complete.<br>
+</font></p>
+
+<p align="justify">
+Graphs are generated in the GML language specifically for <i>GDE Community Edition</i>, a freeware GML viewer available for download from <a href="http://www.oreas.com">www.oreas.com</a>. Graphs are interactive, editable, sport instruction level coloring for easy reading and can be displayed with a number of layout algorithms such as hierarchical, orthogonal, symmetric, circular, etc... Entry points are highlighted in green, true/false branches are colored green/red accordingly and implicit edges are colored blue.
+</p>
+
+<!-- ------------------------ P R O C E S S   S T A L K E R   -   T R A C E R -------------------------->
+
+<font size="+1"><b>Process Stalker - Tracer</b></font><br><img src="images/333333.gif" width="100%" height=1>
+
+<p align="justify">
+The Process Stalker stand alone tracer utility requires no installation. The executable, process_stalker.exe, is a command line utility used to attach to or load a process:
+</p>
+
+<p><font face="courier new" color="#0000CC">
+usage:<br>
+&nbsp;&nbsp;process_stalker <-a pid | -l filename | -la filename args><br>
+<br>
+options:<br>
+&nbsp;&nbsp;[-b bp list]&nbsp;&nbsp;&nbsp;specify the breakpoint list for the main module.<br>
+&nbsp;&nbsp;[-r recorder]&nbsp;&nbsp;enter a recorder (0-9) from trace initiation.<br>
+&nbsp;&nbsp;[--one-time]&nbsp;&nbsp;&nbsp;disable breakpoint restoration.<br>
+&nbsp;&nbsp;[--no-regs]&nbsp;&nbsp;&nbsp;&nbsp;disable register enumeration / dereferencing.<br>
+</font></p>
+
+<p align="justify">
+<dl>
+<dd>&bull; <b>-a<i> pid</i></b>: Attach to process with process id 'pid'.</dd>
+<dd>&bull; <b>-l<i> filename</i></b>: Load a process with no command line options.</dd>
+<dd>&bull; <b>-la<i> filename args</i></b>: Load a process and pass in the arguments specified by 'args'.</dd>
+<dd>&bull; <b>-b<i> breakpoint list</i></b>: Load and parse the specified breakpoint list for the main image. Note that you don't need to specify this argument for subsequently loaded DLLs.</dd>
+<dd>&bull; <b>-r<i> recorder</i></b>: Start recording immediately into the specified recorder. Valid arguments are 0 through 9. Recording output is saved to [pid | filename].[recorder #]</dd>
+<dd>&bull; <b>--one-time</b>: If specified, disable breakpoint restores. Specifying this option can result in a significant performance gain.</dd>
+<dd>&bull; <b>--no-regs</b>: If specified, disable register enumeration and dereferencing. Specifying this option can result in a significant performance gain. Register recording output is saved to [pid | filename]-regs.[recorder #]</dd>
+</dl>
+
+Pertinent breakpoint lists must exist in the directory Process Stalker is being executed from. An initial breakpoint list needs to be specified on the command line for the main image only. As the target process loads modules, Process Stalker will examine the current directory for MODULE_NAME.bpl. If found, the breakpoint list will be automatically loaded and parsed. The following output demonstrates the start of a successful session of Process Stalker on PID 864, Hyper Terminal:
+</p>
+
+<p><font face="courier new" color="#0000CC">
+$ process_stalker -a 864 --one-time<br>
+<br>
+process stalker<br>
+pedram amini XXXXXXXXXXXXXXXXXXXXXX<br>
+compiled on Jul  5 2005<br>
+target: 864<br>
+<br>
+processing breakpoints for module HYPERTRM.dll at 67441000<br>
+done. 10568 of 10577 breakpoints set.<br>
+<br>
+initial break, tid = 0794.<br>
+<br>
+commands:&nbsp;[h]&nbsp;&nbsp;&nbsp;this&nbsp;screen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[m]&nbsp;module&nbsp;list<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[0-9]&nbsp;enter&nbsp;recorder&nbsp;modes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[x]&nbsp;stop&nbsp;recording<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[v]&nbsp;&nbsp;&nbsp;toggle&nbsp;verbosity<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[d]&nbsp;&nbsp;&nbsp;detach&nbsp;(XP/2003&nbsp;only)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[q]&nbsp;quit/close<br>
+<br>
+004d68b2 T:00000a74 [bp] 6747D041 mov edi,edi<br>
+004d68b2 T:00000a74 [bp] 6747D05C cmp [ebp+0C],0x1<br>
+004d68b2 T:00000a74 [bp] 6747D0AB cmp [ebp+0C],esi<br>
+<b>004d68bc T:00000a74 [bp] 6747D0EB xor eax,eax</b><br>
+...
+</font></p>
+
+<p align="justify">
+As breakpoints are hit Process Stalker will generate a log entry to STDOUT. The format of the entry is as follows. The first field, <b>004d68bc</b>, displays the current tick count as reported by Windows. The second field, <b>T:00000a74</b>, displays the thread id that this breakpoint was reached in. The third field, <b>[bp]</b>, displays the recorder that this entry was written to. Recording is off by default and is denoted by the tag '[bp]', otherwise the recording number would appear in the tag. The fourth field, <b>6747D0EB</b>, displays the address of the breakpoint. The final field, <b>xor eax,eax</b>, displays the disassembly of the instructions at the breakpoint address.
+<br><br>
+Hotkeys can be used to control Process Stalker at any point while it is running. The numeric keys, <b>[0-9]</b>, signal to Process Stalker that it should start recording in the specified recorder slot. The recorder file name is specified by the attached pid or loaded filename and appended with the extension .[recorder #]. Recorder files are appended to and not overwritten. To close a recorder, strike the <b>[x]</b> hotkey. The <b>[v]</b> hotkey toggles breakpoint-level output logging. Disable logging to for increased performance. The <b>[m]</b> hotkey, displays a list of all loaded modules and a list of modules that are currently being monitored:
+</p>
+
+<p><font face="courier new" color="#0000CC">
+---------- MODULE LIST ----------<br>
+module 01001000 HYPERTRM.EXE<br>
+module 7c801000 KERNEL32.dll<br>
+module 7c901000 ntdll.dll<br>
+module 7c9c1000 SHELL32.dll<br>
+...<br>
+<br>
+stalking:<br>
+67441000 - 67480000 [0003f000] HYPERTRM.dll<br>
+---------- MODULE LIST ----------
+</font></p>
+
+<p align="justify">
+Use the <b>[q]</b> hotkey to close any open recordings as well as the debuggee. Alternatively, on systems that support detaching (Windows XP and 2003) use the <b>[d]</b> hotkey to close any open recordings, reset all breakpoints and detach from the debuggee.
+</p>
+
+<!-- ------------------------ P Y T H O N   U T I L I T I E S ------------------------------------------>
+
+<font size="+1"><b>Python Utilities</b></font><br><img src="images/333333.gif" width="100%" height=1>
+
+<p align="justify">
+A number of Python utilities are provided for the instrumentation of breakpoint lists, recordings, statistics and graphs. <b>Note</b>, the utilities that deal with recordings expect processed recordings (see <i>ps_process_recording</i>). A description and sample usage of each utility follows (alphabetical order):
+
+<br><br><b>ps_add_register_metadata.py</b><br><i>Process Stalker Graph Register Metadata Importer</i>
+<br>
+This utility is provided to add recorded register metadata to the specified graph. Example usage:
+</p>
+
+<p><font face="courier new" color="#0000CC">
+<i>ps_add_register_metadata &lt;recording-regs&gt; &lt;GML file&gt; [rebase address]</i><br><br>
+ps_add_register_metadata 2360-regs.0 in.gml &gt; out.gml
+</font></p>
+
+<p align="justify">
+The output graph is rendered with live register data and shows the immediate 32-bit register values. Registers that are determined to be potential pointers into stack or heap space are dereferenced and displayed. If an ASCII or UNICODE string is detected then it will be displayed in place of the 4-byte aligned data. 
+</p>
+
+<p align="justify">
+<b>ps_bp_filter.py</b><br><i>Process Stalker Breakpoint Filter</i>
+<br>
+This utility is provided as a means to filter generated breakpoint lists. Breakpoint lists should be piped in via standard input and can be filtered in one of two ways:
+</p>
+
+<dl>
+<dd>&bull; <b>function</b> - Filter breakpoints that aren't on a function, ie: we don't care for block-level detail.</dd>
+<dd>&bull; <b>function list</b> - Filter breakpoints that belong to any function as defined by a user-supplied function list.</dd>
+</dl>
+
+<p align="justify">
+The "in/out" modifier specifies whether or not the functions in the function list are to be filtered into the output list or out of the input list. The output of this file must be redirected into the new breakpoint list. Example usage:
+</p>
+
+<p><font face="courier new" color="#0000CC">
+<i>ps_bp_filter &lt;in bpl&gt; &lt;out bpl&gt; &lt;functions|&lt;func1&gt;:[func2]:[...] &lt;in | out&gt;&gt;</i><br><br>
+ps_bp_filter input.bpl filtered.bpl functions<br>
+ps_bp_filter input.bpl filtered.bpl 00001234:deadbeef in
+</font></p>
+
+<p align="justify">
+This utility is used frequently for fine tuning our process stalking to only interesting areas of code. Consider the following when stalking a process with a GUI. Take a recording of the target process while heavily interacting with the GUI. Use the ps_recording_to_list utility with a 'module' argument to extract the function list from the recording. Use ps_bp_filter to remove these uninteresting nodes from the breakpoint list.
+</p>
+
+<p align="justify">
+<b>ps_gde_fixup.py</b><br><i>Process Stalker GDE-Generated GML Fixer</i><br>
+Oreas GDE will sometimes save GML files that it cannot parse. When this occurs use this script to parse and re-render the broken GML description. Example usage:
+</p>
+
+<p><font face="courier new" color="#0000CC">
+<i>ps_gde_fixup &lt;in.gml&gt;</i><br><br>
+ps_gde_fixup gde-generated.gml
+</font></p>
+
+
+<p align="justify">
+<b>ps_graph_cat.py</b><br><i>Process Stalker Graph Concatenate</i><br>
+This utility is provided to combine multiple function graphs into one larger and optionally interconnected graph. Nodes are clustered together by function. Example usage:
+</p>
+
+<p><font face="courier new" color="#0000CC">
+<i>ps_graph_cat [-x &lt;xrefs file&gt; -b &lt;base addr&gt;] &lt;file_1&gt; [file_2] ...</i><br><br>
+ps_graph_cat.py -x dll.xrefs -b 46001000 1.gml 2.gml &gt; out.gml
+</font></p>
+
+<p align="justify">
+The cross-references file name and the base address are frequently used variables so it helps to add them to your environment prior to starting your work. Note that there is a significant performance decrease visualizing and interacting with large interconnected graphs.
+</p>
+
+<p align="justify">
+<b>ps_graph_highlight.py</b><br><i>Process Stalker Graph Highlighter</i><br>
+This utility is used to highlight potentially interesting graph nodes. We define interesting nodes as nodes containing any of the following:
+</p>
+
+<dl>
+<dd>&bull; Instruction level loops (REP MOVS, etc.)</dd>
+<dd>&bull; Call to string manipulation API (wstrcpy, strcat, sprintf, etc.)</dd>
+<dd>&bull; Call to memory allocation and manipulation API (malloc, LocalAlloc, etc.)</dd>
+<dd>&bull; Interupt instructions (INT 80, etc)</dd>
+</dl>
+
+<p align="justify">
+Command line options are made available to control whether or not "all" or just "hit" interesting nodes should be highlighted as well as controlling the highlight conditions (reps, ints, str, mem, all). Example usage:
+</p>
+
+<p><font face="courier new" color="#0000CC">
+<i>ps_graph_highlight [--nodes hit,missed,all] [--reps,--ints,--str,--mem] &lt;GML&gt;</i><br><br>
+ps_graph_highlight --nodes hit in.gml&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&gt; graph-highlighted.gml
+ps_graph_highlight --nodes all --reps --str in.gml &gt; graph-highlighted.gml
+</font></p>
+
+<p align="justify">
+<b>ps_idc_gen.py</b><br><i>Process Stalker IDC Script Generator</i><br>
+This utility will parse a GML file and enumerate all function names and user comments. An IDC script will be generated that can be used to import changes made directly within the graph editor back to the IDA database. Example usage:
+</p>
+
+<p><font face="courier new" color="#0000CC">
+<i>ps_idc_gen &lt;file 1&gt; [file 2] [...]</i><br><br>
+ps_idc_gen.py *.gml &gt; import_changes.idc
+</font></p>
+
+<p align="justify">
+<b>ps_process_recording.py</b><br><i>Process Stalker Recording Post Processor</i><br>
+This utility is provided to process a recording to add function offsets to breakpoint addresses and optionally rebase the recording addresses. This utility must be applied to a recording before it can be processed any further. Example Usage:
+</p>
+
+<p><font face="courier new" color="#0000CC">
+<i>ps_process_recording &lt;recording&gt; [base address]</i><br><br>
+ps_process_recording recording.0
+</font></p>
+
+<p align="justify">
+The above command would generate a separate file for each encountered thread found the recording. Filenames are generated in the form: recording.0.thread_id-processed. This utility expects the appropriate .bpl breakpoint lists to exist in the current directory.
+</p>
+
+<p align="justify">
+<b>ps_recording_to_list.py</b><br><i>Process Stalker Recording-Function List Generator</i><br>
+This utility is provided as a helper to process a recording into a function list that can be later utilized in a call to the breakpoint filter utility. It optionally takes a second command line option to filter only functions belonging to a specified module. Example usage:
+</p> 
+
+<p><font face="courier new" color="#0000CC">
+<i>ps_recording_to_list &lt;processed recording&gt; [module]</i><br><br>
+ps_recording_to_list recording.0.processed
+</font></p>
+
+<p align="justify">
+The optional 'module' argument must be used if the output of this utility is destined for use as an argument to ps_bp_filter.
+</p>
+
+<p align="justify">
+<b>ps_recursive_view.py</b><br><i>Process Stalker Recursive Graph Viewer</i><br>
+This utility is provided to combine multiple function graphs into one larger and interconnected graph. Given a single graph (function) this utility will recursively enumerate all inter-module function calls. Functions are clustered together. Example usage:
+</p>
+
+<p><font face="courier new" color="#0000CC">
+<i>ps_recursive_view &lt;GML file&gt; &lt;xrefs file&gt; &lt;base address&gt;</i><br><br>
+ps_recursive_view graph.gml xrefs DEADBEEF > out.gml
+</font></p>
+
+<p align="justify">
+The same caveat applies as above, large interconnected graphs tend to render very slow. If you need to visualize large graphs use a faster layout algorithm like circular as opposed to hierarchical or orthogonal.
+</p>
+
+<p align="justify">
+<b>ps_state_mapper.py</b><br><i>Process Stalker State Mapper</i><br>
+This utility constructs a "state mapping" from multiple recorder files. The visualization is function-level and clusters nodes together by recorder state. Example usage:
+</p>
+
+<p><font face="courier new" color="#0000CC">
+<i>ps_state_mapper &lt;xrefs file&gt; &lt;base address&gt; &lt;recorder0 recorder1 [...]&gt;</i><br><br>
+ps_state_mapper module.xrefs DEADBEEF recorder.0 recorder.1 &gt; out.gml
+</font></p>
+
+<p align="justify">
+One interesting use of this visualization is for charting the maturity of a developing fuzzer. A state mapper view can be generated on a weekly basis for example and compared to see if the fuzzer is getting "deeper" into the target process space.
+</p>
+
+<p align="justify">
+<b>ps_view_recording_funcs.py</b><br><i>Process Stalker Recording Function Viewer</i><br>
+This utility is provided as a means to visualize each function that was "hit" within a recording. Every basic block for each hit function will be displayed. Basic blocks that were "hit" will be highlighted. Example usage:
+</p>
+
+<p><font face="courier new" color="#0000CC">
+<i>ps_view_recording_funcs [-f function] [-x &lt;xrefs file&gt; -b &lt;base addr&gt;] &lt;recording&gt;</i><br><br>
+ps_view_recording_funcs recording.0.processed&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;> out.gml<br>
+ps_view_recording_funcs recording.0.processed -f deadbeef > out.gml
+</font></p>
+
+<p align="justify">
+Specify the optional 'function' argument to view the hit-graph of only that function. Note, this utility expects the .gml function graphs to exist in the current directory.
+</p>
+
+<p align="justify"><b>ps_view_recording_stats.py</b><br><i>Process Stalker Recording Statistics</i><br>
+This utility will generate basic statistics on a recording including the per function hit count and the function to function transition time. Example usage:
+</p>
+
+<p><font face="courier new" color="#0000CC">
+<i>ps_view_recording_stats &lt;recording&gt; [sort]</i><br><br>
+ps_view_recording_stats recording.0.processed<br>
+ps_view_recording_stats recording.0.processed sort
+</font></p>
+
+<p align="justify">
+Specify the optional 'sort' argument to sort the output by count/time as opposed to address.
+</p>
+
+<p align="justify"><b>ps_view_recording_trace.py</b><br><i>Process Stalker Recording Trace Viewer</i><br>
+This utility is provided as a means to visualize the results of a recorder file in sequential order. It will "fold" repeat sequences and cluster them together with a repeat count. Example usage:
+</p>
+
+<p><font face="courier new" color="#0000CC">
+<i>ps_view_recording_trace &lt;recording&gt;</i><br><br>
+ps_view_recording_trace recording.0.processed &gt; out.gml
+</font></p>
+
+<p align="justify">
+The generated graph, while not pretty, is useful for locating run-time logic driven loops. Note, this utility expects the .gml function graphs to exist in the current directory.
+</p>
+
+<!-- ------------------------ P Y T H O N   I N S T R U M E N T A T I O N   A P I ------------------------------------->
+
+<font size="+1"><b>Python Instrumentation API</b></font><br><img src="images/333333.gif" width="100%" height=1>
+
+<p align="justify">
+The bundled Python utilities will provide adequate instrumentation functionality for the majority of users. To appease the needs of "power" users an API was developed to abstract tedious tasks such as file parsing and graph rendering. The API is inline documented via Epydoc and exports the following modules/classes:
+<dl>
+<dd>&bull; <b>gml</b></dd>
+    <dl>
+    <dd>&bull; gml_node</dd>
+    <dd>&bull; gml_edge</dd>
+    <dd>&bull; gml_cluster</dd>
+    <dd>&bull; gml_graph</dd>
+    </dl>
+<dd>&bull; <b>ps_parsers</b></dd>
+    <dl>
+    <dd>&bull; bpl_parser</dd>
+    <dd>&bull; recording_parser</dd>
+    <dd>&bull; register_metadata_parser</dd>
+    <dd>&bull; xrefs_parser</dd>
+    </dl>
+</dl>
+All the bundled Python utilities are built against this API and are good working examples to use as starting points for creating new utilities. More detailed documentation is available in the 'ps_api_docs' folder:
+<br><br>
+<center><a href="ps_api_docs/index.html">Epydoc Generated API Reference</a></center>
+</p>
+
+<!-- ------------------------ G R A P H S -------------------------------------------------------------->
+
+<font size="+1"><b>Sample Graphs</b></font><br><img src="images/333333.gif" width="100%" height=1>
+
+<p align="justify">
+A plethora of visualizations can be generated using a combination of filtering and graph instrumentation with the above described utilities. To help familiarize new users, the following examples and graph screenshot excerpts have been compiled. The following graph excerpt demonstrates the inclusion and highlighting of "chunked" function code:
+</p>
+
+<br>
+<center>
+    <img src="images/chunked_functions.gif" border=0>
+    <br>
+    <font size=1><i>
+        Nodes highlighted in yellow represent chunked segments.
+    </i></font>
+</center>
+<br>
+
+<p align="justify">
+Chunked functions are generally seen in Microsoft optimize compiled binaries. At compile time, the Microsoft compiler will combine and extract similar and "less likely to be executed" code from various functions and store them outside the contiguous function space. Function fragments are displayed as the color <font color="#990000">maroon</font> in the IDA navigation bar. The standard IDA grapher does not support visualization of function chunks and will simply display them as dead end red blocks. With the introduction of IDA 4.7 came chunked function support in the SDK but the grapher does not utilize it. To the security engineer, "less likely to be executed" code is interesting, especially as common security handling routines are classified as such. The process stalking suite supports chunked functions in both tracing and visualization.
+<br><br>
+The following graph excerpt demonstrates basic block level "hit" highlighting and could have been constructed for example after a run-time trace using the utilities ps_process_recording -&gt; ps_view_recording_funcs:
+</p>
+
+<br>
+<center>
+    <img src="images/hit_functions.gif" border=0>
+    <br>
+    <font size=1><i>
+        Nodes highlighted in red represent run-time hits.
+    </i></font>
+</center>
+<br>
+
+<p align="justify">
+A common difficulty that arises when conducting an assembly level code audit is the determination of where to start looking. Most binaries contain a number of functions ranging from the low end of ~500 well into the thousands on the high end. Researchers commonly start with library routines known to process user input, such as recv(), and manually trace through potentially traversed code. Using the process stalking suite we are able to quickly and visually determine which functions are involved in processing specified inputs and equally as important which of the underlying basic blocks within that function were traversed.
+<br><br>
+Even still, the generated visualization of a process trace can be time consuming to comb through. While already much faster then the traditional method, the ps_graph_highlight utility can be applied to immediately differentiate potentially interesting blocks of code:
+</p>
+
+<br>
+<center>
+    <img src="images/highlighted_functions.gif" border=0>
+    <br>
+    <font size=1><i>
+        Nodes highlighted in purple represent potentially "interesting" nodes.
+    </i></font>
+</center>
+<br>
+
+<p align="justify">
+The ps_graph_highlight utility is easily extensible, customizable and controllable via command line options. The analyst can specify whether or not to highlight all potentially interesting nodes, only those that are potentially interesting and were traversed during the trace or only those that are potentially interesting and not traversed during the trace. In the above graph excerpt an inline string copy is immediately detected and highlighted. Three nodes earlier in the graph, the branch condition can be analyzed to determine how the supplied user input can be modified to alter the flow of control to reach this potentially vulnerable block.
+<br><br>
+Highlighted static disassembly allows researchers to immediately view code execution paths. To better determine the "type" of data being handled by specific nodes Process Stalker can be directed to save and render register metadata:
+
+<br>
+<center>
+    <img src="images/register_derefencing.gif" border=0>
+    <br>
+    <font size=1><i>
+        Register values are displayed with automated "smart" dereferencing and string detection.
+    </i></font>
+</center>
+<br>
+
+The nodes from the above graph were rendered with live register data and show the immediate 32-bit register values. Registers that are determined to be potential pointers into stack or heap space are dereferenced and displayed. If an ASCII or UNICODE string is detected then it will be displayed in place of the 4-byte aligned data.
+<br><br>
+A number of layout algorithms are available to the user, each with it's own benefits. The following graph excerpt shows a number of functions displayed in a single graph with hierarchical layout applied:
+</p>
+
+<br>
+<center>
+    <img src="images/multi_separate.gif" border=0>
+    <br>
+    <font size=1><i>
+        Low-res excerpt from graph concatenation of multiple graphs.
+    </i></font>
+</center>
+<br>
+
+<p align="justify">
+The above graph may have been generated with ps_view_recording_funcs or ps_graph_cat. Again, there are a multitude of approaches leaving flexibility in the hands of the researcher. As mentioned above the red nodes represent basic blocks that were "hit" during process tracing. The excerpt is from a much larger graph containing at least twenty functions. While it is not recommended viewing such a large graph concatenation as interconnected, the researcher could do so:
+</p>
+
+<br>
+<center>
+    <img src="images/multi_interconnected.gif" border=0>
+    <br>
+    <font size=1><i>
+        Low-res excerpt from interconnected graph concatenation of the same multiple graphs from above.
+    </i></font>
+</center>
+<br>
+
+<p align="justify">
+The above generated graph is very complex and presented only as a demo. Further filtering could and should have been applied to reduce the function set necessary to visualize. Alternatively in cases where such large function coverage is unavoidable, function groups should be created and analyzed separately. With extremely large interconnected graphs the circular layout provides a fast visualization:
+</p>
+
+<br>
+<center>
+    <img src="images/circular.gif" border=0>
+    <br>
+    <font size=1><i>
+        Circular layout view. Circular layouts are fast in comparison to hierarchical and orthogonal.
+    </i></font>
+</center>
+<br>
+
+<p align="justify">
+Though not as useful it certainly is pretty and may be useful in manually spotting and filtering frequently referenced (high edge count) yet unimportant functions and blocks. As a final example consider the following generated cluster orthogonal view:
+</p>
+
+<br>
+<center>
+    <img src="images/cluster_orthogonal.gif" border=0>
+    <br>
+    <font size=1><i>
+        The cluster orthogonal view is used to visualize state maps and group function nodes together.
+    </i></font>
+</center>
+<br>
+
+<p align="justify">
+Utilities that display multiple combined functions, such as pg_graph_cat, group nodes into clusters by their containing function. This view is useful for visually separating functions on screen while allowing the researcher to see the relationships between them. The explorer panel in GDE constructs collapsible labeled trees allowing for quick search and access to functions and their underlying nodes.
+</p>
+
+</font>
+</td><td><img src="images/333333.gif" width=1 height="100%"></td></tr></table>
+</center>
+</body>
+</html>

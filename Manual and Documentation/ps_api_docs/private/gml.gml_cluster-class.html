@@ -1,0 +1,748 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>gml.gml_cluster</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css"></link>
+</head>
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+
+<!-- =========== START OF NAVBAR =========== -->
+<table class="navbar" border="0" width="100%" cellpadding="0" bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="center">
+    <th class="navbar">&nbsp;&nbsp;&nbsp;<a class="navbar" href="trees.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar">&nbsp;&nbsp;&nbsp;<a class="navbar" href="indices.html">Index</a>&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar">&nbsp;&nbsp;&nbsp;<a class="navbar" href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar" align="right" width="100%">
+      <table border="0" cellpadding="0" cellspacing="0">
+      <tr><th class="navbar" align="center">
+        <p class="nomargin">
+          <a class="navbar" target="_top" href="http://pedram.redhive.com">Process&nbsp;Stalker&nbsp;--&nbsp;Instrumentation&nbsp;API</a>
+      </p></th></tr></table>
+    </th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <font size="-1"><b class="breadcrumbs">
+        <a href="gml-module.html">Module&nbsp;gml</a> ::
+        Class&nbsp;gml_cluster
+      </b></font></br>
+    </td>
+    <td><table cellpadding="0" cellspacing="0">
+      <tr><td align="right"><font size="-2">[show&nbsp;private&nbsp;|&nbsp;<a href="../public/gml.gml_cluster-class.html">hide&nbsp;private</a>]</font></td></tr>
+      <tr><td align="right"><font size="-2">[<a href="frames.html"target="_top">frames</a>&nbsp;|&nbsp;<a href="gml.gml_cluster-class.html" target="_top">no&nbsp;frames</a>]</font></td></tr>
+    </table></td>
+</tr></table>
+
+<!-- =========== START OF CLASS DESCRIPTION =========== -->
+<h2 class="class">Class gml_cluster</h2>
+
+<hr/>
+
+Clusters contain a number of attributes that describe the size, color, 
+label, nodes etc. of the displayable groups nodes. Relevant getters and 
+setters exist for manipulating cluster attributes. The render() routine 
+should be used for returning a cluster description suitable for inclusion 
+in a GML file.
+<hr/>
+
+
+<!-- =========== START OF METHOD SUMMARY =========== -->
+<table class="summary" border="1" cellpadding="3" cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="summary">
+  <th colspan="2">Method Summary</th></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_cluster-class.html#__init__" class="summary-sig-name"><code>__init__</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Set the default attributes for the newly created cluster.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_cluster-class.html#__module_test__" class="summary-sig-name"><code>__module_test__</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Run a few basic tests to ensure the class is working.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_cluster-class.html#add_vertex" class="summary-sig-name"><code>add_vertex</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>node_id</span>)</span></code>
+<br />
+Add a node ID as a vertex in the cluster, ignores duplicates.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_cluster-class.html#del_vertex" class="summary-sig-name"><code>del_vertex</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>node_id</span>)</span></code>
+<br />
+Delete a node ID as a vertex from the cluster.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">        HTML RGB string (ex: #CCFFCC)
+</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_cluster-class.html#get_g_fill" class="summary-sig-name"><code>get_g_fill</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Get the fill color of the cluster from the graphics sub-header.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">        Integer
+</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_cluster-class.html#get_g_height" class="summary-sig-name"><code>get_g_height</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Get the height of the cluster from the graphics sub-header.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">        HTML RGB string (ex: #CCFFCC)
+</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_cluster-class.html#get_g_line_fill" class="summary-sig-name"><code>get_g_line_fill</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Get the fill color of the border line from the graphics 
+sub-header.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">        Float
+</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_cluster-class.html#get_g_line_width" class="summary-sig-name"><code>get_g_line_width</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Get the width of the border line for the cluster from the graphics 
+sub-header.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">        Integer
+</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_cluster-class.html#get_g_pattern" class="summary-sig-name"><code>get_g_pattern</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Get the pattern value for the cluster from the graphics 
+sub-header.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">        Integer
+</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_cluster-class.html#get_g_stipple" class="summary-sig-name"><code>get_g_stipple</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Get the stipple value for the cluster from the graphics 
+sub-header.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">        String
+</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_cluster-class.html#get_g_style" class="summary-sig-name"><code>get_g_style</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Get the style for the cluster from the graphics sub-header.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">        Integer
+</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_cluster-class.html#get_g_width" class="summary-sig-name"><code>get_g_width</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Get the width of the cluster from the graphics sub-header.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">        Integer
+</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_cluster-class.html#get_g_x" class="summary-sig-name"><code>get_g_x</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Get the x coordinate of the top left corner of the cluster in the 
+graphics sub-header.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">        Integer
+</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_cluster-class.html#get_g_y" class="summary-sig-name"><code>get_g_y</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Get the y coordinate of the top left corner of the cluster in the 
+graphics sub-header.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">        Integer
+</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_cluster-class.html#get_id" class="summary-sig-name"><code>get_id</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Get the identifier for the cluster.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">        String
+</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_cluster-class.html#get_label" class="summary-sig-name"><code>get_label</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Get the label (if any) of the cluster.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">        List
+</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_cluster-class.html#get_vertices" class="summary-sig-name"><code>get_vertices</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Return the list of vertices in the cluster.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">        String
+</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_cluster-class.html#render" class="summary-sig-name"><code>render</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Render a cluster description suitable for use in a GML file using the 
+set internal attributes.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_cluster-class.html#set_g_fill" class="summary-sig-name"><code>set_g_fill</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>color</span>)</span></code>
+<br />
+Set the fill color of the cluster in the graphics sub-header.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_cluster-class.html#set_g_height" class="summary-sig-name"><code>set_g_height</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>pixels</span>)</span></code>
+<br />
+Set the height of the cluster in the graphics sub-header.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_cluster-class.html#set_g_line_fill" class="summary-sig-name"><code>set_g_line_fill</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>color</span>)</span></code>
+<br />
+Set the fill color of the border line in the graphics sub-header.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_cluster-class.html#set_g_line_width" class="summary-sig-name"><code>set_g_line_width</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>pixels</span>)</span></code>
+<br />
+Set the width of the border line for the cluster in the graphics 
+sub-header.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_cluster-class.html#set_g_pattern" class="summary-sig-name"><code>set_g_pattern</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>pattern</span>)</span></code>
+<br />
+Set the pattern type for the cluster in the graphics sub-header.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_cluster-class.html#set_g_stipple" class="summary-sig-name"><code>set_g_stipple</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>stipple</span>)</span></code>
+<br />
+Set the stipple type for the cluster in the graphics sub-header.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_cluster-class.html#set_g_style" class="summary-sig-name"><code>set_g_style</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>style</span>)</span></code>
+<br />
+Set the style for the cluster from the graphics sub-header.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_cluster-class.html#set_g_width" class="summary-sig-name"><code>set_g_width</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>pixels</span>)</span></code>
+<br />
+Set the width of the cluster in the graphics sub-header.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_cluster-class.html#set_g_x" class="summary-sig-name"><code>set_g_x</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>x</span>)</span></code>
+<br />
+Set the x coordinate of the top left corner of the cluster in the 
+graphics sub-header.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_cluster-class.html#set_g_y" class="summary-sig-name"><code>set_g_y</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>y</span>)</span></code>
+<br />
+Set the y coordinate of the top left corner of the cluster in the 
+graphics sub-header.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_cluster-class.html#set_id" class="summary-sig-name"><code>set_id</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>id</span>)</span></code>
+<br />
+Set the identifier for the cluster.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_cluster-class.html#set_label" class="summary-sig-name"><code>set_label</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>label</span>)</span></code>
+<br />
+Set the label of this cluster.</td></tr>
+</table><br />
+
+
+<!-- =========== START OF METHOD DETAILS =========== -->
+<table class="details" border="1" cellpadding="3" cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="details">
+  <th colspan="2">Method Details</th></tr>
+</table>
+
+<a name="__init__"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">__init__</span>(<span class=sig-arg>self</span>)</span>
+    <br /><i>(Constructor)</i>
+  </h3>
+  Set the default attributes for the newly created cluster. See the 
+  source if you want to modify the default creation values.
+  <dl><dt></dt><dd>
+  </dd></dl>
+</td></tr></table>
+
+<a name="__module_test__"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">__module_test__</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  Run a few basic tests to ensure the class is working.
+  <dl><dt></dt><dd>
+  </dd></dl>
+</td></tr></table>
+
+<a name="add_vertex"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">add_vertex</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>node_id</span>)</span>
+  </h3>
+  Add a node ID as a vertex in the cluster, ignores duplicates.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>node_id</b></code> -
+         Node identifier to add
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=Integer)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="del_vertex"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">del_vertex</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>node_id</span>)</span>
+  </h3>
+  Delete a node ID as a vertex from the cluster.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>node_id</b></code> -
+         Node identifier
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=Integer)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="get_g_fill"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">get_g_fill</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  Get the fill color of the cluster from the graphics sub-header.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Returns:</b></dt>
+      <dd>
+        Color
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=HTML RGB string (ex: #CCFFCC))</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="get_g_height"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">get_g_height</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  Get the height of the cluster from the graphics sub-header.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Returns:</b></dt>
+      <dd>
+        Cluster height in pixels
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=Integer)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="get_g_line_fill"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">get_g_line_fill</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  Get the fill color of the border line from the graphics 
+  sub-header.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Returns:</b></dt>
+      <dd>
+        Color
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=HTML RGB string (ex: #CCFFCC))</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="get_g_line_width"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">get_g_line_width</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  Get the width of the border line for the cluster from the graphics 
+  sub-header.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Returns:</b></dt>
+      <dd>
+        Line width in pixels
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=Float)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="get_g_pattern"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">get_g_pattern</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  Get the pattern value for the cluster from the graphics 
+  sub-header.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Returns:</b></dt>
+      <dd>
+        Pattern value
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=Integer)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="get_g_stipple"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">get_g_stipple</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  Get the stipple value for the cluster from the graphics 
+  sub-header.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Returns:</b></dt>
+      <dd>
+        Stipple value
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=Integer)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="get_g_style"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">get_g_style</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  Get the style for the cluster from the graphics sub-header. For the 
+  purposes of Process Stalker this value will always be 
+  &quot;rectangle&quot;.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Returns:</b></dt>
+      <dd>
+        Style
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=String)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="get_g_width"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">get_g_width</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  Get the width of the cluster from the graphics sub-header.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Returns:</b></dt>
+      <dd>
+        Line width in pixels
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=Integer)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="get_g_x"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">get_g_x</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  Get the x coordinate of the top left corner of the cluster in the 
+  graphics sub-header.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Returns:</b></dt>
+      <dd>
+        X-Coordinate in pixels
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=Integer)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="get_g_y"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">get_g_y</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  Get the y coordinate of the top left corner of the cluster in the 
+  graphics sub-header.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Returns:</b></dt>
+      <dd>
+        Y-Coordinate in pixels
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=Integer)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="get_id"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">get_id</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  Get the identifier for the cluster.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Returns:</b></dt>
+      <dd>
+        Identifier
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=Integer)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="get_label"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">get_label</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  Get the label (if any) of the cluster.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Returns:</b></dt>
+      <dd>
+        Cluster label
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=String)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="get_vertices"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">get_vertices</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  Return the list of vertices in the cluster.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Returns:</b></dt>
+      <dd>
+        Sorted list of vertices
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=List)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="render"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">render</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  Render a cluster description suitable for use in a GML file using 
+  the set internal attributes.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Returns:</b></dt>
+      <dd>
+        GML cluster description
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=String)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="set_g_fill"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">set_g_fill</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>color</span>)</span>
+  </h3>
+  Set the fill color of the cluster in the graphics sub-header.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>color</b></code> -
+         Color
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=HTML RGB string (ex: #CCFFCC))</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="set_g_height"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">set_g_height</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>pixels</span>)</span>
+  </h3>
+  Set the height of the cluster in the graphics sub-header.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>pixels</b></code> -
+         Cluster height in pixels
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=Integer)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="set_g_line_fill"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">set_g_line_fill</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>color</span>)</span>
+  </h3>
+  Set the fill color of the border line in the graphics 
+  sub-header.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>color</b></code> -
+         Color
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=HTML RGB string (ex: #CCFFCC))</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="set_g_line_width"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">set_g_line_width</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>pixels</span>)</span>
+  </h3>
+  Set the width of the border line for the cluster in the graphics 
+  sub-header.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>pixels</b></code> -
+         Line width in pixels
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=Float)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="set_g_pattern"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">set_g_pattern</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>pattern</span>)</span>
+  </h3>
+  Set the pattern type for the cluster in the graphics sub-header.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>pattern</b></code> -
+         Pattern value
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=Integer)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="set_g_stipple"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">set_g_stipple</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>stipple</span>)</span>
+  </h3>
+  Set the stipple type for the cluster in the graphics sub-header.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>stipple</b></code> -
+         Stipple value
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=Integer)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="set_g_style"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">set_g_style</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>style</span>)</span>
+  </h3>
+  Set the style for the cluster from the graphics sub-header. For the 
+  purposes of Process Stalker this value will always be 
+  &quot;rectangle&quot;.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>style</b></code> -
+         Style
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=String)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="set_g_width"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">set_g_width</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>pixels</span>)</span>
+  </h3>
+  Set the width of the cluster in the graphics sub-header.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>pixels</b></code> -
+         Cluster width in pixels
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=Integer)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="set_g_x"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">set_g_x</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>x</span>)</span>
+  </h3>
+  Set the x coordinate of the top left corner of the cluster in the 
+  graphics sub-header.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>x</b></code> -
+         X-Coordinate in pixels
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=Integer)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="set_g_y"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">set_g_y</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>y</span>)</span>
+  </h3>
+  Set the y coordinate of the top left corner of the cluster in the 
+  graphics sub-header.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>y</b></code> -
+         Y-Coordinate in pixels
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=Integer)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="set_id"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">set_id</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>id</span>)</span>
+  </h3>
+  Set the identifier for the cluster.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>id</b></code> -
+         Identifier
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=Integer)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="set_label"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">set_label</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>label</span>)</span>
+  </h3>
+  Set the label of this cluster.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>label</b></code> -
+         Cluster label
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=String)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+<br />
+
+
+<!-- =========== START OF NAVBAR =========== -->
+<table class="navbar" border="0" width="100%" cellpadding="0" bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="center">
+    <th class="navbar">&nbsp;&nbsp;&nbsp;<a class="navbar" href="trees.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar">&nbsp;&nbsp;&nbsp;<a class="navbar" href="indices.html">Index</a>&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar">&nbsp;&nbsp;&nbsp;<a class="navbar" href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar" align="right" width="100%">
+      <table border="0" cellpadding="0" cellspacing="0">
+      <tr><th class="navbar" align="center">
+        <p class="nomargin">
+          <a class="navbar" target="_top" href="http://pedram.redhive.com">Process&nbsp;Stalker&nbsp;--&nbsp;Instrumentation&nbsp;API</a>
+      </p></th></tr></table>
+    </th>
+  </tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td align="left"><font size="-2">Generated by Epydoc 2.1 on Tue Jul 05 12:05:31 2005</font></td>
+    <td align="right"><a href="http://epydoc.sourceforge.net"
+                      ><font size="-2">http://epydoc.sf.net</font></a></td>
+  </tr>
+</table>
+</body>
+</html>

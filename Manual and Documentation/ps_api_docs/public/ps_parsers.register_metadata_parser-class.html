@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>ps_parsers.register_metadata_parser</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css"></link>
+</head>
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+
+<!-- =========== START OF NAVBAR =========== -->
+<table class="navbar" border="0" width="100%" cellpadding="0" bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="center">
+    <th class="navbar">&nbsp;&nbsp;&nbsp;<a class="navbar" href="trees.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar">&nbsp;&nbsp;&nbsp;<a class="navbar" href="indices.html">Index</a>&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar">&nbsp;&nbsp;&nbsp;<a class="navbar" href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar" align="right" width="100%">
+      <table border="0" cellpadding="0" cellspacing="0">
+      <tr><th class="navbar" align="center">
+        <p class="nomargin">
+          <a class="navbar" target="_top" href="http://pedram.redhive.com">Process&nbsp;Stalker&nbsp;--&nbsp;Instrumentation&nbsp;API</a>
+      </p></th></tr></table>
+    </th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <font size="-1"><b class="breadcrumbs">
+        <a href="ps_parsers-module.html">Module&nbsp;ps_parsers</a> ::
+        Class&nbsp;register_metadata_parser
+      </b></font></br>
+    </td>
+    <td><table cellpadding="0" cellspacing="0">
+      <tr><td align="right"><font size="-2">[<a href="../private/ps_parsers.register_metadata_parser-class.html">show&nbsp;private</a>&nbsp;|&nbsp;hide&nbsp;private]</font></td></tr>
+      <tr><td align="right"><font size="-2">[<a href="frames.html"target="_top">frames</a>&nbsp;|&nbsp;<a href="ps_parsers.register_metadata_parser-class.html" target="_top">no&nbsp;frames</a>]</font></td></tr>
+    </table></td>
+</tr></table>
+
+<!-- =========== START OF CLASS DESCRIPTION =========== -->
+<h2 class="class">Class register_metadata_parser</h2>
+
+<hr/>
+
+<p>Process Stalker can store per-node register meta-data. The purpose of 
+this class is to alleviate the burden of handling register recordings by 
+providing an abstraction layer.</p>
+Register recordings are stored in the following format:
+<pre class="literalblock">
+   hit time:module name:breakpoint offset address:register name:register data location:register data
+   0096e63c:msn.dll:022ede10:EAX::DEADBEEF
+   0096e63c:msn.dll:022ede10:*EAX:heap:8405 0000 0000 0000 0000 0000 0100 0000
+</pre>
+<hr/>
+
+
+<!-- =========== START OF METHOD SUMMARY =========== -->
+<table class="summary" border="1" cellpadding="3" cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="summary">
+  <th colspan="2">Method Summary</th></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="ps_parsers.register_metadata_parser-class.html#__init__" class="summary-sig-name"><code>__init__</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>base_address</span>)</span></code>
+<br />
+Initialize internal member variables.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="ps_parsers.register_metadata_parser-class.html#__module_test__" class="summary-sig-name"><code>__module_test__</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Run a few basic tests to ensure the class is working.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">        Tuple
+</font></td>
+  <td><code><span class="summary-sig"><a href="ps_parsers.register_metadata_parser-class.html#get_recording_entry" class="summary-sig-name"><code>get_recording_entry</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>index</span>)</span></code>
+<br />
+Get the recording entry at the specified index.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">        Integer
+</font></td>
+  <td><code><span class="summary-sig"><a href="ps_parsers.register_metadata_parser-class.html#num_entries" class="summary-sig-name"><code>num_entries</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Get the entry count for this recording.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="ps_parsers.register_metadata_parser-class.html#parse" class="summary-sig-name"><code>parse</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>filename</span>)</span></code>
+<br />
+Open and parse the specified register recording file.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">        Dictionary
+</font></td>
+  <td><code><span class="summary-sig"><a href="ps_parsers.register_metadata_parser-class.html#retrieve_register_metadata" class="summary-sig-name"><code>retrieve_register_metadata</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>register</span>,
+          <span class=summary-sig-arg>address</span>,
+          <span class=summary-sig-arg>module</span>)</span></code>
+<br />
+Get the recording entry at the specified index.</td></tr>
+</table><br />
+
+
+<!-- =========== START OF METHOD DETAILS =========== -->
+<table class="details" border="1" cellpadding="3" cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="details">
+  <th colspan="2">Method Details</th></tr>
+</table>
+
+<a name="__init__"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">__init__</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>base_address</span>=<span class=sig-default>0</span>)</span>
+    <br /><i>(Constructor)</i>
+  </h3>
+  Initialize internal member variables.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>base_address</b></code> -
+         Optional address to re-base parsed xref offsets to.
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=DWORD)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="__module_test__"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">__module_test__</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  Run a few basic tests to ensure the class is working.
+  <dl><dt></dt><dd>
+  </dd></dl>
+</td></tr></table>
+
+<a name="get_recording_entry"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">get_recording_entry</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>index</span>)</span>
+  </h3>
+  Get the recording entry at the specified index.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>index</b></code> -
+         Recording index
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=Integer)</i>
+      </dd>
+    </dl>
+    <dl><dt><b>Returns:</b></dt>
+      <dd>
+        Time, module name, base, breakpoint offset address, register, 
+        register data location, register data
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=Tuple)</i>
+      </dd>
+    </dl>
+    <dl><dt><b>Raises:</b></dt>
+      <dd><code><b>psx</b></code> -
+        An exception is raised if the requested index is out of 
+        range.
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="num_entries"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">num_entries</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  Get the entry count for this recording.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Returns:</b></dt>
+      <dd>
+        Recording count
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=Integer)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="parse"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">parse</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>filename</span>)</span>
+  </h3>
+  Open and parse the specified register recording file. Register 
+  recordings are stored in the following format:
+<pre class="literalblock">
+   hit time:module name:base addr:breakpoint offset address:register name:register data location:register data
+   0096e63c:msn.dll:0001000:022ede10:EAX::DEADBEEF
+   0096e63c:msn.dll:0001000:022ede10:*EAX:heap:8405 0000 0000 0000 0000 0000 0100 0000
+</pre>
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>filename</b></code> -
+         Filename
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=String)</i>
+      </dd>
+    </dl>
+    <dl><dt><b>Raises:</b></dt>
+      <dd><code><b>psx</b></code> -
+        An exception is raised if requested recording file can not be 
+        opened.
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="retrieve_register_metadata"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">retrieve_register_metadata</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>register</span>,
+          <span class=sig-arg>address</span>,
+          <span class=sig-arg>module</span>=<span class=sig-default>0</span>)</span>
+  </h3>
+  Get the recording entry at the specified index.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>register</b></code> -
+         One of EAX, EBX, ECX, EDX, ESI, EDI, EBP
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=String)</i>
+      <dd><code><b>address</b></code> -
+         Node address to retrieve register metadata for.
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=DWORD)</i>
+      <dd><code><b>module</b></code> -
+         Module name
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=String)</i>
+      </dd>
+    </dl>
+    <dl><dt><b>Returns:</b></dt>
+      <dd>
+        register{value, single_location, single_data, double_location, 
+        double_data} or 'False' if not found.
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=Dictionary)</i>
+      </dd>
+    </dl>
+<p><b>To Do:</b> Uncomment check for 'double_data' when double derefencing support is 
+added to process stalker.
+</p>
+
+  </dd></dl>
+</td></tr></table>
+<br />
+
+
+<!-- =========== START OF NAVBAR =========== -->
+<table class="navbar" border="0" width="100%" cellpadding="0" bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="center">
+    <th class="navbar">&nbsp;&nbsp;&nbsp;<a class="navbar" href="trees.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar">&nbsp;&nbsp;&nbsp;<a class="navbar" href="indices.html">Index</a>&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar">&nbsp;&nbsp;&nbsp;<a class="navbar" href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar" align="right" width="100%">
+      <table border="0" cellpadding="0" cellspacing="0">
+      <tr><th class="navbar" align="center">
+        <p class="nomargin">
+          <a class="navbar" target="_top" href="http://pedram.redhive.com">Process&nbsp;Stalker&nbsp;--&nbsp;Instrumentation&nbsp;API</a>
+      </p></th></tr></table>
+    </th>
+  </tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td align="left"><font size="-2">Generated by Epydoc 2.1 on Tue Jul 05 12:05:31 2005</font></td>
+    <td align="right"><a href="http://epydoc.sourceforge.net"
+                      ><font size="-2">http://epydoc.sf.net</font></a></td>
+  </tr>
+</table>
+</body>
+</html>

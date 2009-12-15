@@ -1,0 +1,34 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: process_stalker - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\pamini\LOCALS~1\Temp\RSP60.tmp" with contents
+[
+/nologo /Gz /MT /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "PROCESS_STALKER_EXPORTS" /D "__NT__" /D "__IDP__" /Fp"Release/process_stalker.pch" /YX /Fo"Release/" /Fd"Release/" /FD /c 
+"E:\Repositories\process_stalking\ida_plugin\function_analyzer.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\pamini\LOCALS~1\Temp\RSP60.tmp" 
+Creating temporary file "C:\DOCUME~1\pamini\LOCALS~1\Temp\RSP61.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib ida.lib /nologo /dll /incremental:no /pdb:"Release/process_stalker.pdb" /machine:I386 /out:"Release/process_stalker.plw" /implib:"Release/process_stalker.lib" /EXPORT:PLUGIN 
+.\Release\function_analyzer.obj
+.\Release\process_stalker.obj
+]
+Creating command line "link.exe @C:\DOCUME~1\pamini\LOCALS~1\Temp\RSP61.tmp"
+<h3>Output Window</h3>
+Compiling...
+function_analyzer.cpp
+Linking...
+   Creating library Release/process_stalker.lib and object Release/process_stalker.exp
+
+
+
+<h3>Results</h3>
+process_stalker.plw - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

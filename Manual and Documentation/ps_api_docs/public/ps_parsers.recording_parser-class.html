@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>ps_parsers.recording_parser</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css"></link>
+</head>
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+
+<!-- =========== START OF NAVBAR =========== -->
+<table class="navbar" border="0" width="100%" cellpadding="0" bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="center">
+    <th class="navbar">&nbsp;&nbsp;&nbsp;<a class="navbar" href="trees.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar">&nbsp;&nbsp;&nbsp;<a class="navbar" href="indices.html">Index</a>&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar">&nbsp;&nbsp;&nbsp;<a class="navbar" href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar" align="right" width="100%">
+      <table border="0" cellpadding="0" cellspacing="0">
+      <tr><th class="navbar" align="center">
+        <p class="nomargin">
+          <a class="navbar" target="_top" href="http://pedram.redhive.com">Process&nbsp;Stalker&nbsp;--&nbsp;Instrumentation&nbsp;API</a>
+      </p></th></tr></table>
+    </th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <font size="-1"><b class="breadcrumbs">
+        <a href="ps_parsers-module.html">Module&nbsp;ps_parsers</a> ::
+        Class&nbsp;recording_parser
+      </b></font></br>
+    </td>
+    <td><table cellpadding="0" cellspacing="0">
+      <tr><td align="right"><font size="-2">[<a href="../private/ps_parsers.recording_parser-class.html">show&nbsp;private</a>&nbsp;|&nbsp;hide&nbsp;private]</font></td></tr>
+      <tr><td align="right"><font size="-2">[<a href="frames.html"target="_top">frames</a>&nbsp;|&nbsp;<a href="ps_parsers.recording_parser-class.html" target="_top">no&nbsp;frames</a>]</font></td></tr>
+    </table></td>
+</tr></table>
+
+<!-- =========== START OF CLASS DESCRIPTION =========== -->
+<h2 class="class">Class recording_parser</h2>
+
+<hr/>
+
+<p>Process Stalker stores generated trace meta-data in recording files. 
+These recordings serve as the starting point for generating 
+&quot;live&quot; visualizations and must be processed prior to use. The 
+purpose of this class is to alleviate the burden of handling recordings 
+by providing an abstraction layer.</p>
+Pre-processed recordings are stored in the following format:
+<pre class="literalblock">
+   hit time:thread id:module name:module base address:breakpoint offset address
+   002d97d0:00000a28:irc.dll:00401000:000092d1
+</pre>
+Post-processed recordings add the function offset address as as the 
+second to last field:
+<pre class="literalblock">
+   hit time: thread id:module name:module base address:breakpoint function offset address:breakpoint offset address
+   002d97d0:00000a28:irc.dll:00401000:00009160:000092d1
+</pre>
+<hr/>
+
+<p><b>To Do:</b> Implement routines to set individual recording entries. I currently 
+have no use for this.
+</p>
+
+
+<!-- =========== START OF METHOD SUMMARY =========== -->
+<table class="summary" border="1" cellpadding="3" cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="summary">
+  <th colspan="2">Method Summary</th></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="ps_parsers.recording_parser-class.html#__init__" class="summary-sig-name"><code>__init__</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Initialize internal member variables.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="ps_parsers.recording_parser-class.html#__module_test__" class="summary-sig-name"><code>__module_test__</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Run a few basic tests to ensure the class is working.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">        Tuple
+</font></td>
+  <td><code><span class="summary-sig"><a href="ps_parsers.recording_parser-class.html#get_recording_entry" class="summary-sig-name"><code>get_recording_entry</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>index</span>)</span></code>
+<br />
+Get the recording entry at the specified index.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">        Integer
+</font></td>
+  <td><code><span class="summary-sig"><a href="ps_parsers.recording_parser-class.html#num_entries" class="summary-sig-name"><code>num_entries</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Get the entry count for this recording.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="ps_parsers.recording_parser-class.html#parse" class="summary-sig-name"><code>parse</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>filename</span>)</span></code>
+<br />
+Open the specified *processed* recording and process the data into the 
+internal lists.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="ps_parsers.recording_parser-class.html#pre_process" class="summary-sig-name"><code>pre_process</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>filename</span>,
+          <span class=summary-sig-arg>rebase</span>)</span></code>
+<br />
+Open the specified recording and process the data into the internal 
+lists.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="ps_parsers.recording_parser-class.html#save" class="summary-sig-name"><code>save</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>filename</span>)</span></code>
+<br />
+Save a recording to the specified file.</td></tr>
+</table><br />
+
+
+<!-- =========== START OF METHOD DETAILS =========== -->
+<table class="details" border="1" cellpadding="3" cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="details">
+  <th colspan="2">Method Details</th></tr>
+</table>
+
+<a name="__init__"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">__init__</span>(<span class=sig-arg>self</span>)</span>
+    <br /><i>(Constructor)</i>
+  </h3>
+  Initialize internal member variables.
+  <dl><dt></dt><dd>
+  </dd></dl>
+</td></tr></table>
+
+<a name="__module_test__"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">__module_test__</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  Run a few basic tests to ensure the class is working.
+  <dl><dt></dt><dd>
+  </dd></dl>
+</td></tr></table>
+
+<a name="get_recording_entry"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">get_recording_entry</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>index</span>)</span>
+  </h3>
+  Get the recording entry at the specified index.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>index</b></code> -
+         Recording index
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=Integer)</i>
+      </dd>
+    </dl>
+    <dl><dt><b>Returns:</b></dt>
+      <dd>
+        Time, thread ID, module name, module base address, function 
+        offset address, node offset address
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=Tuple)</i>
+      </dd>
+    </dl>
+    <dl><dt><b>Raises:</b></dt>
+      <dd><code><b>psx</b></code> -
+        An exception is raised if the requested index is out of 
+        range.
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="num_entries"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">num_entries</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  Get the entry count for this recording.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Returns:</b></dt>
+      <dd>
+        Recording count
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=Integer)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="parse"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">parse</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>filename</span>)</span>
+  </h3>
+  Open the specified *processed* recording and process the data into 
+  the internal lists. File format:
+<pre class="literalblock">
+   hit time:thread id:module name:mode base addr.:breakpoint function offset addr.:breakpoint offset addr.
+   002d97d0:00000a28:irc.dll:00401000:00009160:000092d1
+</pre>
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>filename</b></code> -
+         Filename
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=String)</i>
+      </dd>
+    </dl>
+    <dl><dt><b>Raises:</b></dt>
+      <dd><code><b>psx</b></code> -
+        An exception is raised if requested recording file can not be 
+        opened.
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="pre_process"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">pre_process</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>filename</span>,
+          <span class=sig-arg>rebase</span>=<span class=sig-default>0</span>)</span>
+  </h3>
+  Open the specified recording and process the data into the internal 
+  lists. File format:
+<pre class="literalblock">
+   hit time:thread id:module name:mode base addr.:breakpoint function offset addr.:breakpoint offset addr.
+   002d97d0:00000a28:irc.dll:00401000:00009160:000092d1
+</pre>
+  The second to final field, 'function offset address, is added in the 
+  processed output. Processed recorder files will be generated for each 
+  thread found within the pre-processed recording.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>filename</b></code> -
+         Filename
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=String)</i>
+      <dd><code><b>rebase</b></code> -
+         Optional module rebase address
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=DWORD)</i>
+      </dd>
+    </dl>
+    <dl><dt><b>Raises:</b></dt>
+      <dd><code><b>psx</b></code> -
+        An exception is raised if requested recording file can not be 
+        opened.
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="save"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">save</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>filename</span>)</span>
+  </h3>
+  Save a recording to the specified file. The contents of the 
+  recording are generated from our internal variables in sorted order. 
+  File format:
+<pre class="literalblock">
+   hit time:thread id:module name:mode base addr.:breakpoint function offset addr.:breakpoint offset addr.
+   002d97d0:00000a28:irc.dll:00401000:00009160:000092d1
+</pre>
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>filename</b></code> -
+         Filename
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=String)</i>
+      </dd>
+    </dl>
+    <dl><dt><b>Raises:</b></dt>
+      <dd><code><b>psx</b></code> -
+        An exception is raised if the specified file can not be opened 
+        for writing.
+    </dl>
+  </dd></dl>
+</td></tr></table>
+<br />
+
+
+<!-- =========== START OF NAVBAR =========== -->
+<table class="navbar" border="0" width="100%" cellpadding="0" bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="center">
+    <th class="navbar">&nbsp;&nbsp;&nbsp;<a class="navbar" href="trees.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar">&nbsp;&nbsp;&nbsp;<a class="navbar" href="indices.html">Index</a>&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar">&nbsp;&nbsp;&nbsp;<a class="navbar" href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar" align="right" width="100%">
+      <table border="0" cellpadding="0" cellspacing="0">
+      <tr><th class="navbar" align="center">
+        <p class="nomargin">
+          <a class="navbar" target="_top" href="http://pedram.redhive.com">Process&nbsp;Stalker&nbsp;--&nbsp;Instrumentation&nbsp;API</a>
+      </p></th></tr></table>
+    </th>
+  </tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td align="left"><font size="-2">Generated by Epydoc 2.1 on Tue Jul 05 12:05:31 2005</font></td>
+    <td align="right"><a href="http://epydoc.sourceforge.net"
+                      ><font size="-2">http://epydoc.sf.net</font></a></td>
+  </tr>
+</table>
+</body>
+</html>

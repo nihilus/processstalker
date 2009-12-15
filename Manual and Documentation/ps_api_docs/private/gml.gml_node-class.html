@@ -1,0 +1,973 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>gml.gml_node</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css"></link>
+</head>
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+
+<!-- =========== START OF NAVBAR =========== -->
+<table class="navbar" border="0" width="100%" cellpadding="0" bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="center">
+    <th class="navbar">&nbsp;&nbsp;&nbsp;<a class="navbar" href="trees.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar">&nbsp;&nbsp;&nbsp;<a class="navbar" href="indices.html">Index</a>&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar">&nbsp;&nbsp;&nbsp;<a class="navbar" href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar" align="right" width="100%">
+      <table border="0" cellpadding="0" cellspacing="0">
+      <tr><th class="navbar" align="center">
+        <p class="nomargin">
+          <a class="navbar" target="_top" href="http://pedram.redhive.com">Process&nbsp;Stalker&nbsp;--&nbsp;Instrumentation&nbsp;API</a>
+      </p></th></tr></table>
+    </th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <font size="-1"><b class="breadcrumbs">
+        <a href="gml-module.html">Module&nbsp;gml</a> ::
+        Class&nbsp;gml_node
+      </b></font></br>
+    </td>
+    <td><table cellpadding="0" cellspacing="0">
+      <tr><td align="right"><font size="-2">[show&nbsp;private&nbsp;|&nbsp;<a href="../public/gml.gml_node-class.html">hide&nbsp;private</a>]</font></td></tr>
+      <tr><td align="right"><font size="-2">[<a href="frames.html"target="_top">frames</a>&nbsp;|&nbsp;<a href="gml.gml_node-class.html" target="_top">no&nbsp;frames</a>]</font></td></tr>
+    </table></td>
+</tr></table>
+
+<!-- =========== START OF CLASS DESCRIPTION =========== -->
+<h2 class="class">Class gml_node</h2>
+
+<hr/>
+
+Nodes contain a number of attributes that describe the size, shape, 
+color, label etc. of the displayable blocks. Relevant getters and setters 
+exist for manipulating node attributes. The render() routine should be 
+used for returning a node description suitable for inclusion in a GML 
+file.
+<hr/>
+
+
+<!-- =========== START OF METHOD SUMMARY =========== -->
+<table class="summary" border="1" cellpadding="3" cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="summary">
+  <th colspan="2">Method Summary</th></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_node-class.html#__init__" class="summary-sig-name"><code>__init__</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Set the default attributes for the newly created node.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_node-class.html#__module_test__" class="summary-sig-name"><code>__module_test__</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Run a few basic tests to ensure the class is working.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">        DWORD
+</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_node-class.html#get_block" class="summary-sig-name"><code>get_block</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Get the block address for the node.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">        DWORD
+</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_node-class.html#get_function" class="summary-sig-name"><code>get_function</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Get the address of the function the node belongs to.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">        HTML RGB string (ex: #CCFFCC)
+</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_node-class.html#get_g_fill" class="summary-sig-name"><code>get_g_fill</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Get the fill color of the node from the graphics sub-header.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">        Float
+</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_node-class.html#get_g_height" class="summary-sig-name"><code>get_g_height</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Get the height of the node from the graphics sub-header.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">        HTML RGB string (ex: #CCFFCC)
+</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_node-class.html#get_g_line_fill" class="summary-sig-name"><code>get_g_line_fill</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Get the fill color of this line from the graphics sub-header.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">        Float
+</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_node-class.html#get_g_line_width" class="summary-sig-name"><code>get_g_line_width</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Get the width of the border line for the node from the graphics 
+sub-header.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">        String
+</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_node-class.html#get_g_pattern" class="summary-sig-name"><code>get_g_pattern</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Get the pattern type for the node from the graphics sub-header.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">        Integer
+</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_node-class.html#get_g_stipple" class="summary-sig-name"><code>get_g_stipple</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Get the stipple value for the node from the graphics sub-header.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">        String
+</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_node-class.html#get_g_type" class="summary-sig-name"><code>get_g_type</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Get the shape for the node from the graphics sub-header.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">        Float
+</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_node-class.html#get_g_width" class="summary-sig-name"><code>get_g_width</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Get the width of the node from the graphics sub-header.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">        Integer
+</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_node-class.html#get_g_width_shape" class="summary-sig-name"><code>get_g_width_shape</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Get the shape width value for the node from the graphics 
+sub-header.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">        Integer
+</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_node-class.html#get_id" class="summary-sig-name"><code>get_id</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Get the identifier for the node.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">        String
+</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_node-class.html#get_label" class="summary-sig-name"><code>get_label</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Get the label (disassembly) of the node.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">        String
+</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_node-class.html#get_label_stripped" class="summary-sig-name"><code>get_label_stripped</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Get the label (disassembly) of the node with all HTML entities 
+stripped.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">        String
+</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_node-class.html#get_name" class="summary-sig-name"><code>get_name</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Get the name (if any) of the node.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">        Tuple
+</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_node-class.html#get_register" class="summary-sig-name"><code>get_register</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>register</span>)</span></code>
+<br />
+Get the values associated with the specified register for this 
+node.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">        String
+</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_node-class.html#get_template" class="summary-sig-name"><code>get_template</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Get the template for the node.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">        Integer
+</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_node-class.html#get_uid" class="summary-sig-name"><code>get_uid</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Get the unique identifier for the node.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">        String
+</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_node-class.html#render" class="summary-sig-name"><code>render</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Render a node description suitable for use in a GML file using the set 
+internal attributes.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_node-class.html#set_block" class="summary-sig-name"><code>set_block</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>address</span>)</span></code>
+<br />
+Set the block address for the node.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_node-class.html#set_function" class="summary-sig-name"><code>set_function</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>address</span>)</span></code>
+<br />
+Set the address of the function the node belongs to.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_node-class.html#set_g_fill" class="summary-sig-name"><code>set_g_fill</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>color</span>)</span></code>
+<br />
+Set the fill color of the node in the graphics sub-header.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_node-class.html#set_g_height" class="summary-sig-name"><code>set_g_height</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>pixels</span>)</span></code>
+<br />
+Set the height of the node in the graphics sub-header.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_node-class.html#set_g_line_fill" class="summary-sig-name"><code>set_g_line_fill</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>color</span>)</span></code>
+<br />
+Set the fill color of this line in the graphics sub-header.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_node-class.html#set_g_line_width" class="summary-sig-name"><code>set_g_line_width</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>pixels</span>)</span></code>
+<br />
+Set the width of the border line for the node in the graphics 
+sub-header.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_node-class.html#set_g_pattern" class="summary-sig-name"><code>set_g_pattern</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>pattern</span>)</span></code>
+<br />
+Set the pattern type for the node in the graphics sub-header.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_node-class.html#set_g_stipple" class="summary-sig-name"><code>set_g_stipple</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>stipple</span>)</span></code>
+<br />
+Set the stipple value for the node in the graphics sub-header.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_node-class.html#set_g_type" class="summary-sig-name"><code>set_g_type</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>type</span>)</span></code>
+<br />
+Set the shape for the node in the graphics sub-header.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_node-class.html#set_g_width" class="summary-sig-name"><code>set_g_width</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>pixels</span>)</span></code>
+<br />
+Set the width of the node in the graphics sub-header.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_node-class.html#set_g_width_shape" class="summary-sig-name"><code>set_g_width_shape</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>pixels</span>)</span></code>
+<br />
+Set the shape width value for the node in the graphics sub-header.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_node-class.html#set_id" class="summary-sig-name"><code>set_id</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>id</span>)</span></code>
+<br />
+Set the identifier for the node.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_node-class.html#set_label" class="summary-sig-name"><code>set_label</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>data</span>)</span></code>
+<br />
+Set the label (disassembly) of the node.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_node-class.html#set_name" class="summary-sig-name"><code>set_name</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>name</span>)</span></code>
+<br />
+Set the name of the node.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_node-class.html#set_register" class="summary-sig-name"><code>set_register</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>register</span>,
+          <span class=summary-sig-arg>value</span>,
+          <span class=summary-sig-arg>single_location</span>,
+          <span class=summary-sig-arg>single_data</span>,
+          <span class=summary-sig-arg>double_location</span>,
+          <span class=summary-sig-arg>double_data</span>)</span></code>
+<br />
+Set a register value for this node.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_node-class.html#set_template" class="summary-sig-name"><code>set_template</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>template</span>)</span></code>
+<br />
+Set the template for the node.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="gml.gml_node-class.html#set_uid" class="summary-sig-name"><code>set_uid</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>uid</span>)</span></code>
+<br />
+Set the unique identifier for the node.</td></tr>
+</table><br />
+
+
+<!-- =========== START OF METHOD DETAILS =========== -->
+<table class="details" border="1" cellpadding="3" cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="details">
+  <th colspan="2">Method Details</th></tr>
+</table>
+
+<a name="__init__"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">__init__</span>(<span class=sig-arg>self</span>)</span>
+    <br /><i>(Constructor)</i>
+  </h3>
+  Set the default attributes for the newly created node. See the 
+  source if you want to modify the default creation values.
+  <dl><dt></dt><dd>
+  </dd></dl>
+</td></tr></table>
+
+<a name="__module_test__"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">__module_test__</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  Run a few basic tests to ensure the class is working.
+  <dl><dt></dt><dd>
+  </dd></dl>
+</td></tr></table>
+
+<a name="get_block"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">get_block</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  Get the block address for the node.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Returns:</b></dt>
+      <dd>
+        Block address
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=DWORD)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="get_function"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">get_function</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  Get the address of the function the node belongs to.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Returns:</b></dt>
+      <dd>
+        Function address
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=DWORD)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="get_g_fill"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">get_g_fill</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  Get the fill color of the node from the graphics sub-header.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Returns:</b></dt>
+      <dd>
+        Color
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=HTML RGB string (ex: #CCFFCC))</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="get_g_height"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">get_g_height</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  Get the height of the node from the graphics sub-header.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Returns:</b></dt>
+      <dd>
+        Node height in pixels
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=Float)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="get_g_line_fill"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">get_g_line_fill</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  Get the fill color of this line from the graphics sub-header.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Returns:</b></dt>
+      <dd>
+        Color
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=HTML RGB string (ex: #CCFFCC))</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="get_g_line_width"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">get_g_line_width</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  Get the width of the border line for the node from the graphics 
+  sub-header.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Returns:</b></dt>
+      <dd>
+        Line width in pixels
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=Float)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="get_g_pattern"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">get_g_pattern</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  Get the pattern type for the node from the graphics sub-header.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Returns:</b></dt>
+      <dd>
+        Pattern type
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=String)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="get_g_stipple"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">get_g_stipple</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  Get the stipple value for the node from the graphics sub-header.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Returns:</b></dt>
+      <dd>
+        Stipple value
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=Integer)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="get_g_type"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">get_g_type</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  Get the shape for the node from the graphics sub-header. For the 
+  purposes of Process Stalker this value will be 
+  &quot;rectangle&quot;.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Returns:</b></dt>
+      <dd>
+        Shape type
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=String)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="get_g_width"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">get_g_width</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  Get the width of the node from the graphics sub-header.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Returns:</b></dt>
+      <dd>
+        Node width in pixels
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=Float)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="get_g_width_shape"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">get_g_width_shape</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  Get the shape width value for the node from the graphics sub-header. 
+  I'm actually unsure as to what exactly this attribute affects. For the 
+  purposes of Process Stalker this value will always be 1.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Returns:</b></dt>
+      <dd>
+        Shape width
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=Integer)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="get_id"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">get_id</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  Get the identifier for the node. This identifier can *not* be 
+  assumed to be unique. See get_uid().
+  <dl><dt></dt><dd>
+    <dl><dt><b>Returns:</b></dt>
+      <dd>
+        Identifier
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=Integer)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="get_label"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">get_label</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  Get the label (disassembly) of the node.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Returns:</b></dt>
+      <dd>
+        Node label (disassembly)
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=String)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="get_label_stripped"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">get_label_stripped</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  Get the label (disassembly) of the node with all HTML entities 
+  stripped.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Returns:</b></dt>
+      <dd>
+        Node label (disassembly) stripped
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=String)</i>
+      </dd>
+    </dl>
+<p><b>To Do:</b> There may be some Python routines that can do some of this work for 
+us.
+</p>
+
+  </dd></dl>
+</td></tr></table>
+
+<a name="get_name"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">get_name</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  Get the name (if any) of the node.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Returns:</b></dt>
+      <dd>
+        Node name
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=String)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="get_register"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">get_register</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>register</span>)</span>
+  </h3>
+  Get the values associated with the specified register for this node. 
+  Values are returned in the following list:
+<pre class="literalblock">
+   (value, single_location, single_data, double_location, double_data)
+</pre>
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>register</b></code> -
+         One of EAX, EBX, ECX, EDX, ESI, EDI, EBP
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=String)</i>
+      </dd>
+    </dl>
+    <dl><dt><b>Returns:</b></dt>
+      <dd>
+        Data for specified register or 'False' on error.
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=Tuple)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="get_template"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">get_template</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  Get the template for the node. For the purposes of Process Stalker 
+  this value will always be &quot;oreas:std:rect&quot;.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Returns:</b></dt>
+      <dd>
+        Template
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=String)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="get_uid"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">get_uid</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  Get the unique identifier for the node. The ID member variable 
+  stores the original value from the GML file. The purpose of the UID is 
+  to uniquely identify the node among a list of loaded nodes that may 
+  potentially have overlapping IDs. The parser class will automatically 
+  assign an incremented value.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Returns:</b></dt>
+      <dd>
+        Unique identifier
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=Integer)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="render"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">render</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  Render a node description suitable for use in a GML file using the 
+  set internal attributes.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Returns:</b></dt>
+      <dd>
+        GML node description
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=String)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="set_block"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">set_block</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>address</span>)</span>
+  </h3>
+  Set the block address for the node.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>address</b></code> -
+         Block address
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=DWORD)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="set_function"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">set_function</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>address</span>)</span>
+  </h3>
+  Set the address of the function the node belongs to.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>address</b></code> -
+         Function address
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=DWORD)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="set_g_fill"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">set_g_fill</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>color</span>)</span>
+  </h3>
+  Set the fill color of the node in the graphics sub-header.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>color</b></code> -
+         Color
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=HTML RGB string (ex: #CCFFCC))</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="set_g_height"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">set_g_height</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>pixels</span>)</span>
+  </h3>
+  Set the height of the node in the graphics sub-header.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>pixels</b></code> -
+         Node height in pixels
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=Float)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="set_g_line_fill"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">set_g_line_fill</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>color</span>)</span>
+  </h3>
+  Set the fill color of this line in the graphics sub-header.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>color</b></code> -
+         Color
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=HTML RGB string (ex: #CCFFCC))</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="set_g_line_width"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">set_g_line_width</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>pixels</span>)</span>
+  </h3>
+  Set the width of the border line for the node in the graphics 
+  sub-header.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>pixels</b></code> -
+         Line width in pixels
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=Float)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="set_g_pattern"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">set_g_pattern</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>pattern</span>)</span>
+  </h3>
+  Set the pattern type for the node in the graphics sub-header.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>pattern</b></code> -
+         Pattern type
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=String)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="set_g_stipple"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">set_g_stipple</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>stipple</span>)</span>
+  </h3>
+  Set the stipple value for the node in the graphics sub-header.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>stipple</b></code> -
+         Stipple value
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=Integer)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="set_g_type"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">set_g_type</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>type</span>)</span>
+  </h3>
+  Set the shape for the node in the graphics sub-header. For the 
+  purposes of Process Stalker this value will be 
+  &quot;rectangle&quot;.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>type</b></code> -
+         Shape type
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=String)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="set_g_width"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">set_g_width</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>pixels</span>)</span>
+  </h3>
+  Set the width of the node in the graphics sub-header.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>pixels</b></code> -
+         Node width in pixels
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=Float)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="set_g_width_shape"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">set_g_width_shape</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>pixels</span>)</span>
+  </h3>
+  Set the shape width value for the node in the graphics sub-header. 
+  I'm actually unsure as to what exactly this attribute affects. For the 
+  purposes of Process Stalker this value will always be 1.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>pixels</b></code> -
+         Shape width
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=Float)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="set_id"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">set_id</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>id</span>)</span>
+  </h3>
+  Set the identifier for the node. This identifier can *not* be 
+  assumed to be unique. See set_uid().
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>id</b></code> -
+         Identifier
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=Integer)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="set_label"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">set_label</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>data</span>)</span>
+  </h3>
+  Set the label (disassembly) of the node.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>data</b></code> -
+         Node label (disassembly)
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=String)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="set_name"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">set_name</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>name</span>)</span>
+  </h3>
+  Set the name of the node.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>name</b></code> -
+         Node name
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=String)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="set_register"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">set_register</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>register</span>,
+          <span class=sig-arg>value</span>,
+          <span class=sig-arg>single_location</span>=<span class=sig-default>''</span>,
+          <span class=sig-arg>single_data</span>=<span class=sig-default>''</span>,
+          <span class=sig-arg>double_location</span>=<span class=sig-default>''</span>,
+          <span class=sig-arg>double_data</span>=<span class=sig-default>''</span>)</span>
+  </h3>
+  Set a register value for this node.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>register</b></code> -
+         One of EAX, EBX, ECX, EDX, ESI, EDI, EBP
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=String)</i>
+      <dd><code><b>value</b></code> -
+         32-bit register value
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=DWORD)</i>
+      <dd><code><b>single_location</b></code> -
+         Optional string specifying the location (&quot;HEAP&quot; or 
+        &quot;STACK&quot;) *register &quot;points&quot; to.
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=String)</i>
+      <dd><code><b>single_data</b></code> -
+         Optional string containing the data stored at *register.
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=String)</i>
+      <dd><code><b>double_location</b></code> -
+         Optional string specifying the location (&quot;HEAP&quot; or 
+        &quot;STACK&quot;) **register &quot;points&quot; to.
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=String)</i>
+      <dd><code><b>double_data</b></code> -
+         Optional string containing the data stored at **register.
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=String)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="set_template"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">set_template</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>template</span>)</span>
+  </h3>
+  Set the template for the node. For the purposes of Process Stalker 
+  this value will always be &quot;oreas:std:rect&quot;.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>template</b></code> -
+         Template
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=String)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="set_uid"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">set_uid</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>uid</span>)</span>
+  </h3>
+  Set the unique identifier for the node. The ID member variable 
+  stores the original value from the GML file. The purpose of the UID is 
+  to uniquely identify the node among a list of loaded nodes that may 
+  potentially have overlapping IDs. The parser class will automatically 
+  assign an incremented value.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>uid</b></code> -
+         Unique identifier
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=Integer)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+<br />
+
+
+<!-- =========== START OF NAVBAR =========== -->
+<table class="navbar" border="0" width="100%" cellpadding="0" bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="center">
+    <th class="navbar">&nbsp;&nbsp;&nbsp;<a class="navbar" href="trees.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar">&nbsp;&nbsp;&nbsp;<a class="navbar" href="indices.html">Index</a>&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar">&nbsp;&nbsp;&nbsp;<a class="navbar" href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar" align="right" width="100%">
+      <table border="0" cellpadding="0" cellspacing="0">
+      <tr><th class="navbar" align="center">
+        <p class="nomargin">
+          <a class="navbar" target="_top" href="http://pedram.redhive.com">Process&nbsp;Stalker&nbsp;--&nbsp;Instrumentation&nbsp;API</a>
+      </p></th></tr></table>
+    </th>
+  </tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td align="left"><font size="-2">Generated by Epydoc 2.1 on Tue Jul 05 12:05:31 2005</font></td>
+    <td align="right"><a href="http://epydoc.sourceforge.net"
+                      ><font size="-2">http://epydoc.sf.net</font></a></td>
+  </tr>
+</table>
+</body>
+</html>

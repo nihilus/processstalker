@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>ps_parsers.xrefs_parser</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css"></link>
+</head>
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+
+<!-- =========== START OF NAVBAR =========== -->
+<table class="navbar" border="0" width="100%" cellpadding="0" bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="center">
+    <th class="navbar">&nbsp;&nbsp;&nbsp;<a class="navbar" href="trees.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar">&nbsp;&nbsp;&nbsp;<a class="navbar" href="indices.html">Index</a>&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar">&nbsp;&nbsp;&nbsp;<a class="navbar" href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar" align="right" width="100%">
+      <table border="0" cellpadding="0" cellspacing="0">
+      <tr><th class="navbar" align="center">
+        <p class="nomargin">
+          <a class="navbar" target="_top" href="http://pedram.redhive.com">Process&nbsp;Stalker&nbsp;--&nbsp;Instrumentation&nbsp;API</a>
+      </p></th></tr></table>
+    </th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <font size="-1"><b class="breadcrumbs">
+        <a href="ps_parsers-module.html">Module&nbsp;ps_parsers</a> ::
+        Class&nbsp;xrefs_parser
+      </b></font></br>
+    </td>
+    <td><table cellpadding="0" cellspacing="0">
+      <tr><td align="right"><font size="-2">[show&nbsp;private&nbsp;|&nbsp;<a href="../public/ps_parsers.xrefs_parser-class.html">hide&nbsp;private</a>]</font></td></tr>
+      <tr><td align="right"><font size="-2">[<a href="frames.html"target="_top">frames</a>&nbsp;|&nbsp;<a href="ps_parsers.xrefs_parser-class.html" target="_top">no&nbsp;frames</a>]</font></td></tr>
+    </table></td>
+</tr></table>
+
+<!-- =========== START OF CLASS DESCRIPTION =========== -->
+<h2 class="class">Class xrefs_parser</h2>
+
+<hr/>
+
+Cross-reference lists contain function offset addresses, source node 
+offset addresses and destination node offset addresses. The 
+cross-reference list contains the enumeration of all intra-modular calls 
+and is used to create connected graphs and recursive graph views. 
+Cross-reference list file format:
+<pre class="literalblock">
+   function offset address:source node offset address:destination node offset address
+   000000e0:0000011e:00015edc
+</pre>
+<hr/>
+
+
+<!-- =========== START OF METHOD SUMMARY =========== -->
+<table class="summary" border="1" cellpadding="3" cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="summary">
+  <th colspan="2">Method Summary</th></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="ps_parsers.xrefs_parser-class.html#__init__" class="summary-sig-name"><code>__init__</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>base_address</span>)</span></code>
+<br />
+Initialize internal member variables.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="ps_parsers.xrefs_parser-class.html#__module_test__" class="summary-sig-name"><code>__module_test__</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Run a few basic tests to ensure the class is working.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="ps_parsers.xrefs_parser-class.html#add_xref_entry" class="summary-sig-name"><code>add_xref_entry</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>function</span>,
+          <span class=summary-sig-arg>source</span>,
+          <span class=summary-sig-arg>destination</span>,
+          <span class=summary-sig-arg>dupe_check</span>)</span></code>
+<br />
+Add a cross-reference entry to the internal lists.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="ps_parsers.xrefs_parser-class.html#del_xref_entry" class="summary-sig-name"><code>del_xref_entry</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>index</span>)</span></code>
+<br />
+Delete the cross-reference entry at the specified index.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">        Tuple
+</font></td>
+  <td><code><span class="summary-sig"><a href="ps_parsers.xrefs_parser-class.html#get_xref_entry" class="summary-sig-name"><code>get_xref_entry</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>index</span>)</span></code>
+<br />
+Get the cross-reference entry at the specified index.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">        List
+</font></td>
+  <td><code><span class="summary-sig"><a href="ps_parsers.xrefs_parser-class.html#get_xrefs_from" class="summary-sig-name"><code>get_xrefs_from</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>function</span>)</span></code>
+<br />
+Return a list of all intra-modular cross-references from the specified 
+function.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">        Integer
+</font></td>
+  <td><code><span class="summary-sig"><a href="ps_parsers.xrefs_parser-class.html#num_entries" class="summary-sig-name"><code>num_entries</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Get the entry count for this cross-reference list.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="ps_parsers.xrefs_parser-class.html#parse" class="summary-sig-name"><code>parse</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>filename</span>)</span></code>
+<br />
+Open the specified Cross-reference list filename and process the data 
+into the internal lists.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="ps_parsers.xrefs_parser-class.html#save" class="summary-sig-name"><code>save</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>filename</span>)</span></code>
+<br />
+Save a cross-reference list to the specified file.</td></tr>
+</table><br />
+
+
+<!-- =========== START OF METHOD DETAILS =========== -->
+<table class="details" border="1" cellpadding="3" cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="details">
+  <th colspan="2">Method Details</th></tr>
+</table>
+
+<a name="__init__"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">__init__</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>base_address</span>=<span class=sig-default>0</span>)</span>
+    <br /><i>(Constructor)</i>
+  </h3>
+  Initialize internal member variables.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>base_address</b></code> -
+         Optional address to re-base parsed xref offsets to.
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=DWORD)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="__module_test__"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">__module_test__</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  Run a few basic tests to ensure the class is working.
+  <dl><dt></dt><dd>
+  </dd></dl>
+</td></tr></table>
+
+<a name="add_xref_entry"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">add_xref_entry</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>function</span>,
+          <span class=sig-arg>source</span>,
+          <span class=sig-arg>destination</span>,
+          <span class=sig-arg>dupe_check</span>=<span class=sig-default>False</span>)</span>
+  </h3>
+  Add a cross-reference entry to the internal lists.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>function</b></code> -
+         Source function offset address
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=DWORD)</i>
+      <dd><code><b>source</b></code> -
+         Source node offset address
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=DWORD)</i>
+      <dd><code><b>destination</b></code> -
+         Destination node offset address
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=DWORD)</i>
+      <dd><code><b>dupe_check</b></code> -
+         Optional flag specifying whether or not to check for 
+        duplicates before adding entry (slow).
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=Boolean)</i>
+      </dd>
+    </dl>
+    <dl><dt><b>Raises:</b></dt>
+      <dd><code><b>psx</b></code> -
+        An exception is raised if the entry to add already exists.
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="del_xref_entry"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">del_xref_entry</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>index</span>)</span>
+  </h3>
+  Delete the cross-reference entry at the specified index.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>index</b></code> -
+         Cross-reference index
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=Integer)</i>
+      </dd>
+    </dl>
+    <dl><dt><b>Raises:</b></dt>
+      <dd><code><b>psx</b></code> -
+        An exception is raised if the requested index is out of 
+        range.
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="get_xref_entry"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">get_xref_entry</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>index</span>)</span>
+  </h3>
+  Get the cross-reference entry at the specified index.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>index</b></code> -
+         Cross-reference index
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=Integer)</i>
+      </dd>
+    </dl>
+    <dl><dt><b>Returns:</b></dt>
+      <dd>
+        Function offset address, source node offset address, 
+        destination node offset address
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=Tuple)</i>
+      </dd>
+    </dl>
+    <dl><dt><b>Raises:</b></dt>
+      <dd><code><b>psx</b></code> -
+        An exception is raised if the requested index is out of 
+        range.
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="get_xrefs_from"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">get_xrefs_from</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>function</span>)</span>
+  </h3>
+  Return a list of all intra-modular cross-references from the 
+  specified function.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Returns:</b></dt>
+      <dd>
+        List of functions cross-referenced from the specified 
+        origin.
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=List)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="num_entries"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">num_entries</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  Get the entry count for this cross-reference list.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Returns:</b></dt>
+      <dd>
+        Cross-reference count
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=Integer)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="parse"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">parse</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>filename</span>)</span>
+  </h3>
+  Open the specified Cross-reference list filename and process the 
+  data into the internal lists. File format:
+<pre class="literalblock">
+   function offset address:source node offset address:destination node offset address
+   000000e0:0000011e:00015edc
+</pre>
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>filename</b></code> -
+         Filename
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=String)</i>
+      </dd>
+    </dl>
+    <dl><dt><b>Raises:</b></dt>
+      <dd><code><b>psx</b></code> -
+        An exception is raised if requested cross-reference file can 
+        not be opened.
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="save"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">save</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>filename</span>)</span>
+  </h3>
+  Save a cross-reference list to the specified file. The contents of 
+  the cross-reference are generated from our internal variables in sorted 
+  order. File format:
+<pre class="literalblock">
+   function offset address:source node offset address:destination node offset address
+   000000e0:0000011e:00015edc
+</pre>
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>filename</b></code> -
+         Filename
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=String)</i>
+      </dd>
+    </dl>
+    <dl><dt><b>Raises:</b></dt>
+      <dd><code><b>psx</b></code> -
+        An exception is raised if the specified file can not be opened 
+        for writing.
+    </dl>
+  </dd></dl>
+</td></tr></table>
+<br />
+
+
+<!-- =========== START OF NAVBAR =========== -->
+<table class="navbar" border="0" width="100%" cellpadding="0" bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="center">
+    <th class="navbar">&nbsp;&nbsp;&nbsp;<a class="navbar" href="trees.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar">&nbsp;&nbsp;&nbsp;<a class="navbar" href="indices.html">Index</a>&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar">&nbsp;&nbsp;&nbsp;<a class="navbar" href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar" align="right" width="100%">
+      <table border="0" cellpadding="0" cellspacing="0">
+      <tr><th class="navbar" align="center">
+        <p class="nomargin">
+          <a class="navbar" target="_top" href="http://pedram.redhive.com">Process&nbsp;Stalker&nbsp;--&nbsp;Instrumentation&nbsp;API</a>
+      </p></th></tr></table>
+    </th>
+  </tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td align="left"><font size="-2">Generated by Epydoc 2.1 on Tue Jul 05 12:05:31 2005</font></td>
+    <td align="right"><a href="http://epydoc.sourceforge.net"
+                      ><font size="-2">http://epydoc.sf.net</font></a></td>
+  </tr>
+</table>
+</body>
+</html>
