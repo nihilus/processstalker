@@ -743,6 +743,7 @@ void function_analyzer::gml_export (char *file_path, int base_node_id)
     char gml_line[256];
     char path[1024];
     char color[10];
+	char root_filename[MAX_PATH];
     char *tmp, *dis;
     int  i, len, this_width, width, height, amount;
     bool first_line;
@@ -757,7 +758,8 @@ void function_analyzer::gml_export (char *file_path, int base_node_id)
     //
 
     // construct the graph output file name as "file path + get_root_filename() + '-' + function address + .gml".
-    _snprintf(path, sizeof(path) - 1, "%s\\%s-%08x.gml", file_path, get_root_filename(), ea_start);
+	get_root_filename(root_filename, sizeof(root_filename));
+    _snprintf(path, sizeof(path) - 1, "%s\\%s-%08x.gml", file_path, root_filename, ea_start);
 
     // open the graph output file.
     if ((fp = qfopen(path, "w+")) == NULL)
@@ -767,7 +769,7 @@ void function_analyzer::gml_export (char *file_path, int base_node_id)
     }
 
     // contruct the xrefs output file name as "file path + get_root_filename() + .xrefs".
-    _snprintf(path, sizeof(path) - 1, "%s\\%s.xrefs", file_path, get_root_filename());
+    _snprintf(path, sizeof(path) - 1, "%s\\%s.xrefs", file_path, root_filename);
 
     // open the xrefs output file.
     if ((xrefs = qfopen(path, "a+")) == NULL)
