@@ -91,7 +91,7 @@ void _ida_run (int arg)
     char  *file_path;
     char  *tmp;
     char  path[1024];
-	char  root_filename[MAX_PATH];
+    char  root_filename[MAX_PATH];
     FILE  *bpl;
     function_analyzer *fa;
 
@@ -146,7 +146,7 @@ void _ida_run (int arg)
         *tmp = '\0';
 
     // construct the breakpoint list file name as "file path + get_root_filename() + .bpl".
-	get_root_filename(root_filename, sizeof(root_filename));
+    get_root_filename(root_filename, sizeof(root_filename));
     _snprintf(path, sizeof(path), "%s\\%s.bpl", file_path, root_filename);
 
     // open/create the outfile.

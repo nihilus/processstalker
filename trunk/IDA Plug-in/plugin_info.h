@@ -28,10 +28,10 @@
 char _ida_comment[] = "Process Stalker - Profiler";
 
 char _ida_help[] =
-	"[ Process Stalker - Profiler ]\n"
-	"\n"
-	"Pedram Amini <pedram[dot]amini[at]gmail[dot]com>\n"
-	"\n";
+    "[ Process Stalker - Profiler ]\n"
+    "\n"
+    "Pedram Amini <pedram[dot]amini[at]gmail[dot]com>\n"
+    "\n";
     
 
 // This is the preferred name of the plugin module in the menu system.
@@ -55,16 +55,16 @@ char _ida_wanted_hotkey[] = "Alt-5";
 extern "C" plugin_t PLUGIN =
 {
     IDP_INTERFACE_VERSION,
-    0,					// plugin flags.
-    _ida_init,			// initialize callback.
-    _ida_term,			// terminate callback. this pointer may be NULL.
-    _ida_run,			// invoke plugin routine.
+    0,                  // plugin flags.
+    _ida_init,          // initialize callback.
+    _ida_term,          // terminate callback. this pointer may be NULL.
+    _ida_run,           // invoke plugin routine.
     _ida_comment,       // long comment about the plugin.
-						// it could appear in the status line
-						// or as a hint.
+                        // it could appear in the status line
+                        // or as a hint.
     _ida_help,          // multiline help about the plugin.
     _ida_wanted_name,   // the preferred short name of the plugin.
-    _ida_wanted_hotkey	// the preferred hot key to run the plugin.
+    _ida_wanted_hotkey  // the preferred hot key to run the plugin.
 };
 
 #endif

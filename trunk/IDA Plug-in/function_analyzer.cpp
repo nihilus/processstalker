@@ -743,7 +743,7 @@ void function_analyzer::gml_export (char *file_path, int base_node_id)
     char gml_line[256];
     char path[1024];
     char color[10];
-	char root_filename[MAX_PATH];
+    char root_filename[MAX_PATH];
     char *tmp, *dis;
     int  i, len, this_width, width, height, amount;
     bool first_line;
@@ -758,7 +758,7 @@ void function_analyzer::gml_export (char *file_path, int base_node_id)
     //
 
     // construct the graph output file name as "file path + get_root_filename() + '-' + function address + .gml".
-	get_root_filename(root_filename, sizeof(root_filename));
+    get_root_filename(root_filename, sizeof(root_filename));
     _snprintf(path, sizeof(path) - 1, "%s\\%s-%08x.gml", file_path, root_filename, ea_start);
 
     // open the graph output file.
